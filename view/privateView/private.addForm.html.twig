@@ -1,0 +1,76 @@
+{% extends 'privateView/private.home.html.twig' %}
+{% block title %} Admin | AddForm {% endblock %}
+{% block headerLink %}<a href="?route=logout"><span class="text-white">Logout</span></a>{% endblock %}
+    {% block mainClass %} "mx-auto mt-6" {% endblock %}
+
+{% block content %}
+    <form action="./" method="POST" id="addNewForm" class="mx-auto">
+        <div class="bg-[#F9FAFB] h-auto w-auto flex items-center">
+            <div class="h-max mx-auto flex flex-col items-center justify-center">
+                <h3 class="text-xl font-bold text-center pb-10">Add Form</h3>
+                <div class="bg-white shadow-xl p-10 flex flex-row gap-4 text-sm text-center">
+                    <div class="flex flex-row">
+                        <div class="flex flex-col">
+                            <div>
+                                {% set isFirst = true %}
+                                {% for button in buttonsForAddForm %}
+                                    <label for="addFormClass{{ button.class }}" class="ml-4">{{ button.class|capitalize }}</label>
+                                    <input class="ps-2 me-1 addFormClass" type="radio" id="addFormClass{{ button.class }}" name="addFormClass" value="{{ button.class }}" {% if isFirst %}required{% endif %}>
+                                    {% set isFirst = false %}
+                                {% endfor %}
+
+                            </div>
+                            <label class="text-gray-600 font-bold inline-block pb-2" for="addFormClassNew">Add Class</label>
+                            <input class="border border-gray-400 focus:outline-slate-400 rounded-md w-full shadow-sm px-5 py-2" type="text" name="addFormClassXXX" id="addFormClassNew" placeholder="Add New Class">
+                            <div>
+                                <label class="text-gray-600 font-bold inline-block pb-2" for="addFormTitle">Title</label>
+                                <input class="border border-gray-400 focus:outline-slate-400 rounded-md w-full shadow-sm px-5 py-2" type="text" name="addFormTitle" id="addFormTitle" placeholder="Title" required>
+                            </div>
+                            <div>
+                                <label class="text-gray-600 font-bold inline-block pb-2" for="addFormDesc">Description</label>
+                                <input class="border border-gray-400 focus:outline-slate-400 rounded-md w-full shadow-sm px-5 py-2" type="text" name="addFormDesc" id="addFormDesc" placeholder="Description" required>
+                            </div>
+                            <div>
+                                <label class="text-gray-600 font-bold inline-block pb-2" for="addFormImage">Image Location</label>
+                                <input class="border border-gray-400 focus:outline-slate-400 rounded-md w-full shadow-sm px-5 py-2" type="text" name="addFormImage" id="addFormImage" placeholder="Location of Image" required>
+                            </div>
+                            <div>
+                                <label class="text-gray-600 font-bold inline-block pb-2" for="addFormCode">Code</label>
+                                <textarea class="border border-gray-400 focus:outline-slate-400 rounded-md w-full shadow-sm px-5 py-2" name="addFormCode" id="addFormCode" placeholder="Code" required></textarea>
+                            </div>
+                            <div>
+                                <label class="text-gray-600 font-bold inline-block pb-2" for="addFormCall">Call</label>
+                                <textarea class="border border-gray-400 focus:outline-slate-400 rounded-md w-full shadow-sm px-5 py-2" name="addFormCall" id="addFormCall" placeholder="Call"></textarea>
+                            </div>
+                            <div>
+                                <label class="text-gray-600 font-bold inline-block pb-2" for="addFormFunc">Function</label>
+                                <textarea class="border border-gray-400 focus:outline-slate-400 rounded-md w-full shadow-sm px-5 py-2" name="addFormFunc" id="addFormFunc" placeholder="Function"></textarea>
+                            </div>
+                            <div>
+                                <label class="text-gray-600 font-bold inline-block pb-2" for="addFormJs">JS</label>
+                                <textarea class="border border-gray-400 focus:outline-slate-400 rounded-md w-full shadow-sm px-5 py-2" name="addFormJs" id="addFormJs" placeholder="JS"></textarea>
+                            </div>
+                            <div class="mt-4">
+                                <label for="addFormTypeTW" class="ml-4">TW</label>
+                                <input class="ps-2 me-1 addFormType" type="radio" id="addFormTypeTW" name="addFormType" value="tw" required>
+                                <label for="addFormTypeBS" class="ml-4">BS</label>
+                                <input class="ps-2 me-1 addFormType" type="radio" id="addFormTypeBS" name="addFormType" value="bs" required>
+                                <label for="addFormTypeRW" class="ml-4">RW</label>
+                                <input class="ps-2 me-1 addFormType" type="radio" id="addFormTypeRW" name="addFormType" value="rw" required>
+                            </div>
+                        </div>
+                        <!--        <div class="flex flex-col"></div>       -->
+                    </div>
+                </div>
+                <div>
+                    <button class="bg-[#4F46E5] w-full py-2 px-6 mt-2 rounded-md text-white font-bold cursor-pointer hover:bg-[#181196]" type="submit">Add</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+{% endblock %}
+{% block javascript %}
+{{ parent() }}
+<script src="scripts/addFormScript.js"></script>
+{% endblock %}

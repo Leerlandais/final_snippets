@@ -1,0 +1,78 @@
+{% extends 'template.html.twig' %}
+{% block stylesheet %}
+    {{ parent() }}
+    <link href="../../node_modules/flowbite/dist/flowbite.css" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+    {{ dump(getData) }}
+    {% set isFirst = true %}
+    {% for data in getData %}
+        {% if isFirst %}
+        <div class="w-fit mx-auto">
+            <img src="{{ data.snip_form_img }}" alt="{{ data.snip_form_desc }}">
+        </div>
+        <div class="flex flex-row justify-evenly my-4">
+            <button
+                    class="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 border border-gray-900 text-gray-900 hover:opacity-75 focus:ring focus:ring-gray-300 active:opacity-[0.85] rounded-full"
+                    type="button">
+                Code
+            </button>
+            <button
+                    class="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 bg-gray-900 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none rounded-full"
+                    type="button">
+                PHP Call
+            </button>
+            <button
+                    class="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 bg-gray-900 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none rounded-full"
+                    type="button">
+                PHP Function
+            </button>
+
+
+        </div>
+        <div class="text-left border border-gray-700 p-6">
+            <div class="relative">
+                <label for="codeToCopy" class="sr-only">Label</label>
+                <textarea id="codeToCopy"
+                          type="text"
+                          class="bg-gray-50 border border-gray-300 text-gray-500 text-sm rounded-lg codeWindow"
+                          cols="80"
+                          rows="20"
+                          disabled readonly>{{ data.snip_form_code }}
+                </textarea>
+                <textarea id="codeToCopy"
+                          type="text"
+                          class="hidden bg-gray-50 border border-gray-300 text-gray-500 text-sm rounded-lg codeWindow"
+                          cols="80"
+                          rows="20"
+                          disabled readonly>{{ data.snip_code_code }}
+                </textarea>
+
+                <button data-copy-to-clipboard-target="codeToCopy"
+                        data-tooltip-target="tooltip-copy-npm-install-copy-button"
+                        class="absolute top-0 end-0 translate-y-0 translate-x-6 text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg p-2 inline-flex items-center justify-center">
+            <span id="default-icon">
+                <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="green" viewBox="0 0 18 20">
+                    <path d="M16 1h-3.278A1.992 1.992 0 0 0 11 0H7a1.993 1.993 0 0 0-1.722 1H2a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2Zm-3 14H5a1 1 0 0 1 0-2h8a1 1 0 0 1 0 2Zm0-4H5a1 1 0 0 1 0-2h8a1 1 0 1 1 0 2Zm0-5H5a1 1 0 0 1 0-2h2V2h4v2h2a1 1 0 1 1 0 2Z"/>
+                </svg>
+            </span>
+
+                </button>
+                <div id="tooltip-copy-npm-install-copy-button" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+                    <span id="default-tooltip-message">Copy to clipboard</span>
+                    <span id="success-tooltip-message" class="hidden">Copied!</span>
+                    <div class="tooltip-arrow" data-popper-arrow></div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        {% set isFirst = false %}
+    {% endfor %}
+{% endblock %}
+{% block javascript %}
+{{ parent() }}
+<script src="scripts/copyCodeScript.js"></script>
+<script src="../../node_modules/flowbite/dist/flowbite.js"></script>
+
+{% endblock %}
