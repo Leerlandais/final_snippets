@@ -5,8 +5,9 @@ namespace model\Manager;
 use model\Abstract\AbstractManager;
 use model\Mapping\UserMapping;
 use model\MyPDO;
+use model\Interface\InterfaceManager;
 
-class UserManager extends AbstractManager {
+class UserManager extends AbstractManager implements InterfaceManager {
 
 
 
