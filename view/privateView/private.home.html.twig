@@ -1,4 +1,23 @@
 {% extends 'template.html.twig' %}
 
 {% block title %} Admin | Home {% endblock %}
-{% block headerLink %}<a href="?route=logout"><span class="text-white">Logout</span></a>{% endblock %}
+{% block headerLink %}<a href="?control=logout"><span class="text-white">Logout</span></a>{% endblock %}
+{% block sideBarPublic %} {% endblock %}
+{% block sideBarAdmin %}
+    <li class="option-with-dropdown-inner">
+    <a href="?control=add">
+    <div class="flex items-center justify-between p-2 hover:bg-gray-700">
+           <div class="flex items-center">
+                <span>Add</span>
+            </div>
+        </div>
+    </a>
+    <a href="?control=update">
+        <div class="flex items-center justify-between p-2 hover:bg-gray-700">
+            <div class="flex items-center">
+                <span>Update</span>
+            </div>
+        </div>
+    </a>
+    </li>
+{% endblock %} {# end sideBarAdmin #}

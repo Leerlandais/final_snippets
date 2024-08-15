@@ -2,10 +2,10 @@
 
 
 use model\Manager\UserManager;
-use model\Manager\FormManager;
+
 
 $userManager = new UserManager($db);
-$formManager = new FormManager($db);
+
 
 if (isset($_POST["userLoginName"], $_POST["userLoginPwd"])) {
     $name = $_POST["userLoginName"];
