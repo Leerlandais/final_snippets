@@ -31,6 +31,15 @@ public function addNewCode(CodeMapping $mapping) : bool
     return true;
 }
 
-
+public function getDataByType($type) : array|bool
+{
+    $stmt = $this->db->prepare("SELECT * FROM snip_main_code WHERE snip_code_type = :type");
+    $stmt->bindParam(':type', $type);
+    $stmt->execute();
+    if($stmt->rowCount() === 0) return false;
+    $result = $stmt->fetchAll();
+    $stmt->closeCursor();
+    return $result;
+}
 
 } // end Class

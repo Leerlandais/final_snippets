@@ -1,0 +1,39 @@
+{% extends 'template.html.twig' %}
+{% block title %} Home {% endblock %}
+
+{% block mainClass %} 'flex flex-col text-center mx-auto w-fit' {% endblock %}
+{% block content %}
+    <div class="container pt-8 mt-6 flex flex-col gap-4">
+        <!-- component -->
+        <div class="flex min-h-screen items-center justify-center">
+            <div class="overflow-x-auto">
+                <h3 class="text-3xl"></h3>
+                <table class="min-w-full bg-white shadow-md rounded-xl">
+                    <thead>
+                    <tr class="bg-blue-gray-100 text-gray-700">
+                        <th class="py-3 px-4 text-left">Name</th>
+                        <th class="py-3 px-4 text-left">Description</th>
+                        <th class="py-3 px-4 text-left">View Code</th>
+
+                    </tr>
+                    </thead>
+                    <tbody class="text-blue-gray-900">
+                    <tr class="border-b border-blue-gray-200">
+                        <td class="py-3 px-4">Company A</td>
+                        <td class="py-3 px-4">$50.25</td>
+                        <td class="py-3 px-4">
+                            <a href="?" class="font-medium text-blue-600 hover:text-blue-800">View</a>
+                        </td>
+                    </tr>
+
+                    </tbody>
+                </table>
+                <div class="w-full pt-5 px-4 mb-8 mx-auto ">
+                    <div class="text-sm text-gray-700 py-1 text-center">
+                        Made with <a class="text-gray-700 font-semibold" href="https://www.material-tailwind.com/docs/html/table/?ref=tailwindcomponents" target="_blank">Material Tailwind</a> by <a href="https://www.creative-tim.com?ref=tailwindcomponents" class="text-gray-700 font-semibold" target="_blank"> Creative Tim</a>.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -23,7 +23,7 @@ if (isset(
 
     $codeMapping = new CodeMapping($codeMapData);
     $addCode = $codeManager->addNewCode($codeMapping);
-    echo $addCode ? 'All good' : 'Not good';
+   // echo $addCode ? 'All good' : 'Not good';
 }
 
 $route = $_GET['control'] ?? 'home';

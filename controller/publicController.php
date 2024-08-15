@@ -2,10 +2,10 @@
 
 
 use model\Manager\UserManager;
-
+use model\Manager\CodeManager;
 
 $userManager = new UserManager($db);
-
+$codeManager = new CodeManager($db);
 
 if (isset($_POST["userLoginName"], $_POST["userLoginPwd"])) {
     $name = $_POST["userLoginName"];
@@ -33,27 +33,31 @@ switch ($route) {
            $type = htmlspecialchars(strip_tags(trim($_GET["type"])));
         switch ($type) {
             case 'call':
-                    echo $twig->render('publicView/public.view.call.twig');
+                    $headerTitle = "";
+                    $getData = $codeManager->getDataByType("phpCall");
                 break;
             case 'func':
-                    echo $twig->render('publicView/public.view.func.twig');
+                    $headerTitle = "";
+                    $getData = $codeManager->getDataByType("phpFunc");
                 break;
             case 'java':
-                    echo $twig->render('publicView/public.view.java.twig');
+                    $headerTitle = "";
+                    $getData = $codeManager->getDataByType("jsCode");
                 break;
             case 'xtra':
-                    echo $twig->render('publicView/public.view.xtra.twig');
+                    $headerTitle = "";
+                    $getData = $codeManager->getDataByType("jsXtra");
                 break;
-            case 'form':
-                    echo $twig->render('publicView/public.view.form.twig');
+            case 'html':
+                    $headerTitle = "";
+                    $getData = $codeManager->getDataByType("html");
                 break;
-            case 'table':
-                echo $twig->render('publicView/public.view.table.twig');
-                break;
+
             default:
                 echo $twig->render('publicView/public.404.html.twig');
                 break;
         }
+                echo $twig->render('publicView/public.view.main.twig', ['getData' => $getData]);
        }
         break;
     case 'showCode':
