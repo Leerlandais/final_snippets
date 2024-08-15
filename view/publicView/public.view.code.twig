@@ -1,1 +1,6 @@
 {% extends 'publicView/public.home.html.twig' %}
+
+{% block title %} Public | View Code {% endblock %}
+{% block content %}
+{{ dump(getCode) }}
+{% endblock %}

@@ -6,9 +6,11 @@ use model\Abstract\AbstractManager;
 use model\MyPDO;
 use model\Interface\InterfaceManager;
 use model\Mapping\CodeMapping;
+use model\Trait\TraitLaundryRoom;
 
 class CodeManager extends AbstractManager implements InterfaceManager
 {
+    use TraitLaundryRoom;
 public function addNewCode(CodeMapping $mapping) : bool
 {
     $title = $mapping->getSnipCodeTitle();
@@ -33,6 +35,7 @@ public function addNewCode(CodeMapping $mapping) : bool
 
 public function getDataByType($type) : array|bool
 {
+    $type = $this->standardClean($type);
     $stmt = $this->db->prepare("SELECT * FROM snip_main_code WHERE snip_code_type = :type");
     $stmt->bindParam(':type', $type);
     $stmt->execute();
@@ -44,13 +47,23 @@ public function getDataByType($type) : array|bool
     foreach ($dataMapping as $data) {
         $dataObject[] = new CodeMapping($data);
     }
-
     return $dataObject;
 }
 
 public function getOneDataById(int $id) : array|bool
 {
-    return false;
+    $id = $this->intClean($id);
+    $stmt = $this->db->prepare("SELECT * FROM snip_main_code WHERE snip_code_id = :id");
+    $stmt->bindParam(':id', $id);
+    $stmt->execute();
+    if($stmt->rowCount() === 0) return false;
+    $codeMapping = $stmt->fetchAll();
+    $stmt->closeCursor();
+    $codeObject = [];
+    foreach ($codeMapping as $code) {
+        $codeObject[] = new CodeMapping($code);
+    }
+    return $codeObject;
 }
 
 } // end Class
