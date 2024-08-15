@@ -66,7 +66,7 @@ class CodeMapping extends AbstractMapping
     public function setSnipCodeCode(?string $snip_code_code): void
     {
         if(!$this->verifyString($snip_code_code)) throw new Exception('snip_code_code cannot be empty');
-        $snip_code_code = $this->standardClean($snip_code_code);
+        $snip_code_code = $this->simpleTrim($snip_code_code);
         $this->snip_code_code = $snip_code_code;
     }
 

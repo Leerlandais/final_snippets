@@ -35,7 +35,6 @@ public function addNewCode(CodeMapping $mapping) : bool
 
 public function getDataByType($type) : array|bool
 {
-    $type = $this->standardClean($type);
     $stmt = $this->db->prepare("SELECT snip_code_id, 
                                              snip_code_title,
                                              snip_code_desc 
@@ -56,7 +55,6 @@ public function getDataByType($type) : array|bool
 
 public function getOneDataById(int $id) : array|bool
 {
-    $id = $this->intClean($id);
     $stmt = $this->db->prepare("SELECT * FROM snip_main_code WHERE snip_code_id = :id");
     $stmt->bindParam(':id', $id);
     $stmt->execute();
@@ -65,6 +63,7 @@ public function getOneDataById(int $id) : array|bool
     $stmt->closeCursor();
     $codeObject = [];
     foreach ($codeMapping as $code) {
+        $code['snip_code_code'] = htmlspecialchars_decode($code['snip_code_code'], ENT_QUOTES);
         $codeObject[] = new CodeMapping($code);
     }
     return $codeObject;

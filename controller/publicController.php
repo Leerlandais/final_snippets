@@ -7,10 +7,12 @@ use model\Manager\CodeManager;
 $userManager = new UserManager($db);
 $codeManager = new CodeManager($db);
 
-if (isset($_POST["userLoginName"], $_POST["userLoginPwd"])) {
+if (isset($_POST["userLoginName"],
+          $_POST["userLoginPwd"])) {
     $name = $_POST["userLoginName"];
     $pwd = $_POST["userLoginPwd"];
-
+// either have this here or put it outside the function if there are multiple functions
+    // $userManager = new UserManager($db);
     if ($userManager->attemptUserLogin($name, $pwd)) {
         header("Location: ./");
         exit;
@@ -18,7 +20,6 @@ if (isset($_POST["userLoginName"], $_POST["userLoginPwd"])) {
         echo "Login failed. Please check your credentials.";
     }
 }
-
 
 $route = $_GET['route'] ?? 'home';
 switch ($route) {

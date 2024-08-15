@@ -3,14 +3,17 @@
 
 {% block mainClass %} 'flex flex-col text-center mx-auto w-fit' {% endblock %}
 {% block content %}
-    {{ dump(getData) }}
 
     <div class="container pt-8 mt-6 flex flex-col gap-4">
+{% if getData is not iterable %}
+    <h3 class="text-3xl">Sorry, no codes are currently available</h3>
+    {% else %}
         <h3>{{ headerTitle }}</h3>
         <!-- component -->
         <div class="flex items-center justify-center">
             <div class="overflow-x-auto">
                 <h3 class="text-3xl"></h3>
+                    {% for data in getData %}
                 <table class="min-w-full bg-white shadow-md rounded-xl">
                     <thead>
                     <tr class="bg-blue-gray-100 text-gray-700">
@@ -21,7 +24,6 @@
                     </tr>
                     </thead>
                     <tbody class="text-blue-gray-900">
-                    {% for data in getData %}
                     <tr class="border-b border-blue-gray-200">
                         <td class="py-3 px-4">{{ data.getSnipCodeTitle }}</td>
                         <td class="py-3 px-4">{{ data.getSnipCodeDesc }}</td>
@@ -35,5 +37,6 @@
 
             </div>
         </div>
+    {% endif %}
     </div>
 {% endblock %}

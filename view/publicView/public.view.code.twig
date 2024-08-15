@@ -3,6 +3,7 @@
 {% block title %} Public | View Code {% endblock %}
 {% block mainClass %} 'flex flex-col pt-12 mt-24 mx-auto'  {% endblock %}
 {% block content %}
+
 {% for code in getCode %}
     <div class="text-left border border-gray-700 pt-2 px-6 pb-6">
         <h3 class="text-3xl text-center underline">{{ code.getSnipCodeTitle | capitalize }}</h3>
@@ -34,6 +35,7 @@
             </div>
         </div>
     </div>
+
     {% endfor %}
 {% endblock %}
 {% block javascript %}
