@@ -34,64 +34,36 @@
 
 {% block sideBar %}
     <aside class="bg-gray-800 text-white w-64 min-h-screen p-4">
+        <nav>
             <ul class="space-y-2">
 
-        <nav>
 {% block sideBarPublic %}
                 <li class="option-with-dropdown">
                     <div class="flex items-center justify-between p-2 hover:bg-gray-700">
                         <div class="flex items-center">
                             <i class="fas fa-file-alt mr-2"></i>
-                            <span>Bootstrap</span>
+                            <span>PHP</span>
                         </div>
                         <i class="fas fa-chevron-down text-xs"></i>
                     </div>
                     <ul class="dropdown ml-4 hidden">
                         <li class="option-with-dropdown-inner">
+                        <a href="?route=select&type=call">
                             <div class="flex items-center justify-between p-2 hover:bg-gray-700">
                                 <div class="flex items-center">
-                                    <i class="fas fa-chevron-right mr-2 text-xs"></i>
-                                    <span>Forms</span>
+                                    <span>Calls</span>
                                 </div>
-
                             </div>
-                            <ul class="dropdown-inner ml-4 hidden">
-                                <li>
-                                    <a href="?route=select&class=login&type=bs" class="block p-2 hover:bg-gray-700 flex items-center">
-                                        Login
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="?route=select&class=create&type=bs" class="block p-2 hover:bg-gray-700 flex items-center">
-                                        Create User
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="?route=select&class=reset&type=bs" class="block p-2 hover:bg-gray-700 flex items-center">
-                                        Reset Password
-                                    </a>
-                                </li>
-                            </ul>
+                        </a>
                         </li>
                         <li class="option-with-dropdown-inner">
+                            <a href="?route=select&type=func">
                             <div class="flex items-center justify-between p-2 hover:bg-gray-700">
                                 <div class="flex items-center">
-                                    <i class="fas fa-chevron-right mr-2 text-xs"></i>
-                                    <span>Tables</span>
+                                    <span>Functions</span>
                                 </div>
                             </div>
-                            <ul class="dropdown-inner ml-4 hidden">
-                                <li>
-                                    <a href="#" class="block p-2 hover:bg-gray-700 flex items-center">
-                                        Simple Tables
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="block p-2 hover:bg-gray-700 flex items-center">
-                                        Data Tables
-                                    </a>
-                                </li>
-                            </ul>
+                            </a>
                         </li>
                     </ul>
                 </li>
@@ -99,56 +71,28 @@
                     <div class="flex items-center justify-between p-2 hover:bg-gray-700">
                         <div class="flex items-center">
                             <i class="fas fa-file-alt mr-2"></i>
-                            <span>Tailwind</span>
+                            <span>Javascript</span>
                         </div>
                         <i class="fas fa-chevron-down text-xs"></i>
                     </div>
                     <ul class="dropdown ml-4 hidden">
                         <li class="option-with-dropdown-inner">
+                            <a href="?route=select&type=java">
                             <div class="flex items-center justify-between p-2 hover:bg-gray-700">
                                 <div class="flex items-center">
-                                    <i class="fas fa-chevron-right mr-2 text-xs"></i>
-                                    <span>Forms</span>
+                                    <span>Main</span>
                                 </div>
-
                             </div>
-                            <ul class="dropdown-inner ml-4 hidden">
-                                <li>
-                                    <a href="?route=select&class=login&type=tw" class="block p-2 hover:bg-gray-700 flex items-center">
-                                        Login
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="?route=select&class=create&type=tw" class="block p-2 hover:bg-gray-700 flex items-center">
-                                        Create User
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="?route=select&class=reset&type=tw" class="block p-2 hover:bg-gray-700 flex items-center">
-                                        Reset Password
-                                    </a>
-                                </li>
-                            </ul>
+                            </a>
                         </li>
                         <li class="option-with-dropdown-inner">
+                            <a href="?route=select&type=xtra">
                             <div class="flex items-center justify-between p-2 hover:bg-gray-700">
                                 <div class="flex items-center">
-                                    <i class="fas fa-chevron-right mr-2 text-xs"></i>
-                                    <span>Tables</span>
+                                    <span>Xtra</span>
                                 </div>
                             </div>
-                            <ul class="dropdown-inner ml-4 hidden">
-                                <li>
-                                    <a href="#" class="block p-2 hover:bg-gray-700 flex items-center">
-                                        Simple Tables
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="block p-2 hover:bg-gray-700 flex items-center">
-                                        Data Tables
-                                    </a>
-                                </li>
-                            </ul>
+                            </a>
                         </li>
                     </ul>
                 </li>
@@ -156,58 +100,29 @@
                     <div class="flex items-center justify-between p-2 hover:bg-gray-700">
                         <div class="flex items-center">
                             <i class="fas fa-file-alt mr-2"></i>
-                            <span>Raw</span>
+                            <span>HTML</span>
                         </div>
                         <i class="fas fa-chevron-down text-xs"></i>
                     </div>
                     <ul class="dropdown ml-4 hidden">
                         <li class="option-with-dropdown-inner">
+                            <a href="?route=select&type=form">
                             <div class="flex items-center justify-between p-2 hover:bg-gray-700">
                                 <div class="flex items-center">
-                                    <i class="fas fa-chevron-right mr-2 text-xs"></i>
                                     <span>Forms</span>
                                 </div>
-
                             </div>
-                            <ul class="dropdown-inner ml-4 hidden">
-                                <li>
-                                    <a href="?route=select&class=login&type=rw" class="block p-2 hover:bg-gray-700 flex items-center">
-                                        Login
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="?route=select&class=create&type=rw" class="block p-2 hover:bg-gray-700 flex items-center">
-                                        Create User
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="?route=select&class=reset&type=rw" class="block p-2 hover:bg-gray-700 flex items-center">
-                                        Reset Password
-                                    </a>
-                                </li>
-                            </ul>
+                            </a>
                         </li>
                         <li class="option-with-dropdown-inner">
+                            <a href="?route=select&type=calls">
                             <div class="flex items-center justify-between p-2 hover:bg-gray-700">
                                 <div class="flex items-center">
-                                    <i class="fas fa-chevron-right mr-2 text-xs"></i>
                                     <span>Tables</span>
                                 </div>
                             </div>
-                            <ul class="dropdown-inner ml-4 hidden">
-                                <li>
-                                    <a href="#" class="block p-2 hover:bg-gray-700 flex items-center">
-                                        Simple Tables
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="block p-2 hover:bg-gray-700 flex items-center">
-                                        Data Tables
-                                    </a>
-                                </li>
-                            </ul>
+                            </a>
                         </li>
-
                     </ul>
                 </li>
                 {% endblock %} {# end sideBarPublic #}
