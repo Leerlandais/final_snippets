@@ -37,9 +37,20 @@ public function getDataByType($type) : array|bool
     $stmt->bindParam(':type', $type);
     $stmt->execute();
     if($stmt->rowCount() === 0) return false;
-    $result = $stmt->fetchAll();
+    $dataMapping = $stmt->fetchAll();
     $stmt->closeCursor();
-    return $result;
+    $dataObject = [];
+
+    foreach ($dataMapping as $data) {
+        $dataObject[] = new CodeMapping($data);
+    }
+
+    return $dataObject;
+}
+
+public function getOneDataById(int $id) : array|bool
+{
+    return false;
 }
 
 } // end Class

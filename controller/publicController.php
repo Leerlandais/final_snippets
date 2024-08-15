@@ -33,38 +33,38 @@ switch ($route) {
            $type = htmlspecialchars(strip_tags(trim($_GET["type"])));
         switch ($type) {
             case 'call':
-                    $headerTitle = "";
+                    $headerTitle = "PHP Calls";
                     $getData = $codeManager->getDataByType("phpCall");
                 break;
             case 'func':
-                    $headerTitle = "";
+                    $headerTitle = "PHP Functions";
                     $getData = $codeManager->getDataByType("phpFunc");
                 break;
             case 'java':
-                    $headerTitle = "";
+                    $headerTitle = "Javascript";
                     $getData = $codeManager->getDataByType("jsCode");
                 break;
             case 'xtra':
-                    $headerTitle = "";
+                    $headerTitle = "JS Extra";
                     $getData = $codeManager->getDataByType("jsXtra");
                 break;
             case 'html':
-                    $headerTitle = "";
+                    $headerTitle = "HTML";
                     $getData = $codeManager->getDataByType("html");
                 break;
-
             default:
                 echo $twig->render('publicView/public.404.html.twig');
                 break;
         }
-                echo $twig->render('publicView/public.view.main.twig', ['getData' => $getData]);
+                echo $twig->render('publicView/public.view.main.twig', ['getData' => $getData, 'headerTitle' => $headerTitle]);
        }
         break;
     case 'showCode':
-
+        $getCode = $codeManager->getOneDataById();
+            echo $twig->render('publicView/public.view.code.twig');
         break;
-    default :
-        echo $twig->render('publicView/public.home.html.twig');
+    default:
+        echo $twig->render('publicView/public.404.html.twig');
         break;
 }
 
