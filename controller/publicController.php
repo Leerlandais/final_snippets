@@ -29,10 +29,32 @@ switch ($route) {
         echo $twig->render('publicView/public.login.html.twig');
         break;
     case 'select':
-        $class = htmlspecialchars(strip_tags(trim($_GET['class'])));
-        $type = htmlspecialchars(strip_tags(trim($_GET['type'])));
-        $getDataPublic = $formManager->getDataByType($class, $type);
-        echo $twig->render('publicView/public.form.view.html.twig', ['getData' => $getDataPublic]);
+       if(isset($_GET["type"])) {
+           $type = htmlspecialchars(strip_tags(trim($_GET["type"])));
+        switch ($type) {
+            case 'call':
+                    echo $twig->render('publicView/public.view.call.twig');
+                break;
+            case 'func':
+                    echo $twig->render('publicView/public.view.func.twig');
+                break;
+            case 'java':
+                    echo $twig->render('publicView/public.view.java.twig');
+                break;
+            case 'xtra':
+                    echo $twig->render('publicView/public.view.xtra.twig');
+                break;
+            case 'form':
+                    echo $twig->render('publicView/public.view.form.twig');
+                break;
+            case 'table':
+                echo $twig->render('publicView/public.view.table.twig');
+                break;
+            default:
+                echo $twig->render('publicView/public.404.html.twig');
+                break;
+        }
+       }
         break;
     case 'showCode':
 
