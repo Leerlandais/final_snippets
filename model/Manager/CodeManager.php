@@ -36,7 +36,11 @@ public function addNewCode(CodeMapping $mapping) : bool
 public function getDataByType($type) : array|bool
 {
     $type = $this->standardClean($type);
-    $stmt = $this->db->prepare("SELECT * FROM snip_main_code WHERE snip_code_type = :type");
+    $stmt = $this->db->prepare("SELECT snip_code_id, 
+                                             snip_code_title,
+                                             snip_code_desc 
+                                      FROM snip_main_code 
+                                      WHERE snip_code_type = :type");
     $stmt->bindParam(':type', $type);
     $stmt->execute();
     if($stmt->rowCount() === 0) return false;
