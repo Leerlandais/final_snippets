@@ -14,6 +14,8 @@ class CodeMapping extends AbstractMapping
     use TraitLaundryRoom;
 
     protected ?int $snip_code_id;
+    protected ?string $snip_code_title;
+    protected ?string $snip_code_desc;
     protected ?string $snip_code_code;
     protected ?string $snip_code_type;
     protected ?bool $snip_code_link;
@@ -29,6 +31,32 @@ class CodeMapping extends AbstractMapping
         $snip_code_id = $this->intClean($snip_code_id);
         $this->snip_code_id = $snip_code_id;
     }
+
+    public function getSnipCodeTitle(): ?string
+    {
+        return $this->snip_code_title;
+    }
+
+    public function setSnipCodeTitle(?string $snip_code_title): void
+    {
+        if(!$this->verifyString($snip_code_title)) throw new Exception('snip_code_title cannot be empty');
+        $snip_code_title = $this->standardClean($snip_code_title);
+        $this->snip_code_title = $snip_code_title;
+    }
+
+    public function getSnipCodeDesc(): ?string
+    {
+        return $this->snip_code_desc;
+    }
+
+    public function setSnipCodeDesc(?string $snip_code_desc): void
+    {
+        if(!$this->verifyString($snip_code_desc)) throw new Exception('snip_code_desc cannot be empty');
+        $snip_code_desc = $this->standardClean($snip_code_desc);
+        $this->snip_code_desc = $snip_code_desc;
+    }
+
+
 
     public function getSnipCodeCode(): ?string
     {

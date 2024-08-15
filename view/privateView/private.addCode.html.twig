@@ -12,34 +12,34 @@
                     <div class="flex flex-row">
                         <div class="flex flex-col">
                             <div>
-                                <label class="text-gray-600 font-bold inline-block pb-2" for="addFormDesc">Title</label>
-                                <input class="border border-gray-400 focus:outline-slate-400 rounded-md w-full shadow-sm px-5 py-2" type="text" name="addFormTitle" id="addFormTitle" placeholder="Title" required>
+                                <label class="text-gray-600 font-bold inline-block pb-2" for="addCodeTitle">Title</label>
+                                <input class="border border-gray-400 focus:outline-slate-400 rounded-md w-full shadow-sm px-5 py-2" type="text" name="addCodeTitle" id="addCodeTitle" placeholder="Title" required>
                             </div>
                             <div>
-                                <label class="text-gray-600 font-bold inline-block pb-2" for="addFormDesc">Description</label>
-                                <input class="border border-gray-400 focus:outline-slate-400 rounded-md w-full shadow-sm px-5 py-2" type="text" name="addFormDesc" id="addFormDesc" placeholder="Description" required>
+                                <label class="text-gray-600 font-bold inline-block pb-2" for="addCodeDesc">Description</label>
+                                <input class="border border-gray-400 focus:outline-slate-400 rounded-md w-full shadow-sm px-5 py-2" type="text" name="addCodeDesc" id="addCodeDesc" placeholder="Description" required>
                             </div>
 
                             <div>
-                                <label class="text-gray-600 font-bold inline-block pb-2" for="addFormCode">Code</label>
+                                <label class="text-gray-600 font-bold inline-block pb-2" for="addCodeCode">Code</label>
                                 <textarea class="border border-gray-400 focus:outline-slate-400 rounded-md w-full shadow-sm px-5 py-2"
                                           rows="10"
-                                          name="addFormCode"
-                                          id="addFormCode"
+                                          name="addCodeCode"
+                                          id="addCodeCode"
                                           placeholder="Code" required></textarea>
                             </div>
 
                             <div class="mt-4">
-                                <label for="addFormTypeHtml" class="ml-4">HTML</label>
-                                <input class="ps-2 me-1 addFormType" type="radio" id="addFormTypeHtml" name="addFormType" value="html" required>
-                                <label for="addFormTypeCall" class="ml-4">Call</label>
-                                <input class="ps-2 me-1 addFormType" type="radio" id="addFormTypeCall" name="addFormType" value="phpCall" required>
-                                <label for="addFormTypeFunc" class="ml-4">Function</label>
-                                <input class="ps-2 me-1 addFormType" type="radio" id="addFormTypeFunc" name="addFormType" value="phpFunc" required>
-                                <label for="addFormTypeJs" class="ml-4">JS</label>
-                                <input class="ps-2 me-1 addFormType" type="radio" id="addFormTypeJs" name="addFormType" value="jsCode" required>
-                                <label for="addFormTypeJsX" class="ml-4">JSXtra</label>
-                                <input class="ps-2 me-1 addFormType" type="radio" id="addFormTypeJsX" name="addFormType" value="jsXtra" required>
+                                <label for="addCodeTypeHtml" class="ml-4">HTML</label>
+                                <input class="ps-2 me-1 addCodeType" type="radio" id="addCodeTypeHtml" name="addCodeType" value="html" required>
+                                <label for="addCodeTypeCall" class="ml-4">Call</label>
+                                <input class="ps-2 me-1 addCodeType" type="radio" id="addCodeTypeCall" name="addCodeType" value="phpCall" required>
+                                <label for="addCodeTypeFunc" class="ml-4">Function</label>
+                                <input class="ps-2 me-1 addCodeType" type="radio" id="addCodeTypeFunc" name="addCodeType" value="phpFunc" required>
+                                <label for="addCodeTypeJs" class="ml-4">JS</label>
+                                <input class="ps-2 me-1 addCodeType" type="radio" id="addCodeTypeJs" name="addCodeType" value="jsCode" required>
+                                <label for="addCodeTypeJsX" class="ml-4">JSXtra</label>
+                                <input class="ps-2 me-1 addCodeType" type="radio" id="addCodeTypeJsX" name="addCodeType" value="jsXtra" required>
                             </div>
                         </div>
                         <!--        <div class="flex flex-col"></div>       -->
@@ -55,5 +55,5 @@
 {% endblock %}
 {% block javascript %}
 {{ parent() }}
-<script src="scripts/addFormScript.js"></script>
+<script src="scripts/addCodeScript.js"></script>
 {% endblock %}
