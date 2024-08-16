@@ -69,11 +69,7 @@ public function getOneDataById(int $id) : array|bool
     return $codeObject;
 }
 
-public function addNewHtml(CodeMapping $mapping) : bool
-{
-    die(var_dump($mapping));
-    return false;
-}
+
 
 } // end Class
 

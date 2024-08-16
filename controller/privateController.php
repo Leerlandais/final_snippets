@@ -4,8 +4,11 @@
 use model\Manager\UserManager;
 use model\Manager\CodeManager;
 use model\Mapping\CodeMapping;
+use model\Manager\HtmlManager;
+use model\Mapping\HtmlMapping;
 
 $codeManager = new CodeManager($db);
+$htmlManager = new HtmlManager($db);
 
 if (isset(
         $_POST["addCodeTitle"],
@@ -39,8 +42,8 @@ if (isset(
         'snip_html_code' => $_POST["addHtmlCode"]
     ];
 
-    $htmlMapping = new CodeMapping($htmlMapData);
-    $addHtml = $codeManager->addNewHtml($htmlMapping);
+    $htmlMapping = new HtmlMapping($htmlMapData);
+    $addHtml = $htmlManager->addNewHtml($htmlMapping);
     echo $addHtml ? 'good' : 'bad';
 }
 
