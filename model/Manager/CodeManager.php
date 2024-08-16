@@ -69,4 +69,6 @@ public function getOneDataById(int $id) : array|bool
     return $codeObject;
 }
 
+
 } // end Class
+

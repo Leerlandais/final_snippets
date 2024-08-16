@@ -1,0 +1,51 @@
+{% extends 'privateView/private.home.html.twig' %}
+{% block title %}Admin | Add HTML {% endblock %}
+
+  {% block mainClass %} "mx-auto mt-6" {% endblock %}
+
+{% block content %}
+    <form action="./" method="POST" id="addNewForm" class="mx-auto">
+        <div class="bg-[#F9FAFB] h-auto w-auto flex items-center">
+            <div class="h-max mx-auto flex flex-col items-center justify-center">
+                <h3 class="text-xl font-bold text-center pb-2">Add HTML</h3>
+                <div class="bg-white shadow-xl px-10 pb-2 flex flex-row gap-4 text-sm text-center">
+                    <div class="flex flex-row">
+                        <div class="flex flex-col">
+                            <div>
+                                <label class="text-gray-600 font-bold inline-block pb-2" for="addHtmlTitle">Title</label>
+                                <input class="border border-gray-400 focus:outline-slate-400 rounded-md w-full shadow-sm px-5 py-2" type="text" name="addHtmlTitle" id="addHtmlTitle" placeholder="Title" required>
+                            </div>
+                            <div>
+                                <label class="text-gray-600 font-bold inline-block pb-2" for="addHtmlDesc">Description</label>
+                                <input class="border border-gray-400 focus:outline-slate-400 rounded-md w-full shadow-sm px-5 py-2" type="text" name="addHtmlDesc" id="addHtmlDesc" placeholder="Description" required>
+                            </div>
+                            <div>
+                                <label class="text-gray-600 font-bold inline-block pb-2" for="addHtmlImg">Image Location</label>
+                                <input class="border border-gray-400 focus:outline-slate-400 rounded-md w-full shadow-sm px-5 py-2" type="text" name="addHtmlImg" id="addHtmlImg" placeholder="Description" required>
+                            </div>
+
+                            <div>
+                                <label class="text-gray-600 font-bold inline-block pb-2" for="addHtmlCode">Code</label>
+                                <textarea class="border border-gray-400 focus:outline-slate-400 rounded-md w-full shadow-sm px-5 py-2"
+                                          rows="10"
+                                          name="addHtmlCode"
+                                          id="addHtmlCode"
+                                          placeholder="Code" required></textarea>
+                            </div>
+
+                        </div>
+                        <!--        <div class="flex flex-col"></div>       -->
+                    </div>
+                </div>
+                <div>
+                    <button class="bg-[#4F46E5] w-full py-2 px-6 mt-2 rounded-md text-white font-bold cursor-pointer hover:bg-[#181196]" type="submit">Add</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+{% endblock %}
+{% block javascript %}
+{{ parent() }}
+<script src="scripts/addHtmlScript.js"></script>
+{% endblock %}

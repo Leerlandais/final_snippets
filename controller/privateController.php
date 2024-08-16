@@ -42,6 +42,9 @@ switch ($route) {
     case "update":
         echo $twig->render('privateView/private.updateCode.html.twig');
         break;
+    case 'html':
+        echo $twig->render('privateView/private.addHtml.html.twig');
+        break;
 
 }
 
