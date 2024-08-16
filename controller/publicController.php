@@ -3,9 +3,11 @@
 
 use model\Manager\UserManager;
 use model\Manager\CodeManager;
+use model\Manager\HtmlManager;
 
 $userManager = new UserManager($db);
 $codeManager = new CodeManager($db);
+$htmlManager = new HtmlManager($db);
 
 if (isset($_POST["userLoginName"],
           $_POST["userLoginPwd"])) {
@@ -51,8 +53,9 @@ switch ($route) {
                 break;
             case 'html':
                     $headerTitle = "HTML";
-                    $getData = $codeManager->getDataByType("html");
-                break;
+                    $getData = $htmlManager->getHtml();
+                    echo  $twig->render('publicView/public.view.html.twig', ['headerTitle' => $headerTitle, 'getData' => $getData]);
+                    die();
             default:
                 echo $twig->render('publicView/public.404.html.twig');
                 break;
