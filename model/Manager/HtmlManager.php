@@ -6,6 +6,7 @@ use model\Abstract\AbstractManager;
 use model\Interface\InterfaceManager;
 use model\Mapping\HtmlMapping;
 use model\Trait\TraitLaundryRoom;
+use PDO;
 
 class HtmlManager extends AbstractManager implements InterfaceManager
 {
@@ -28,6 +29,18 @@ class HtmlManager extends AbstractManager implements InterfaceManager
         if ($stmt->rowCount() === 0) return false;
         return true;
     }
-    
+
+    public function getLastIdForLink() : HtmlMapping|bool
+    {
+        $query = $this->db->query("SELECT snip_html_id,
+                                                snip_html_title
+                                         FROM snip_html_code 
+                                         ORDER BY snip_html_id DESC 
+                                         LIMIT 1");
+        $data = $query->fetch();
+        $query->closeCursor();
+        return new HtmlMapping($data);
+    }
+
 
 } // end Class

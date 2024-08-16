@@ -69,7 +69,17 @@ public function getOneDataById(int $id) : array|bool
     return $codeObject;
 }
 
-
+public function getAllCodesForLink()
+{
+    $query = $this->db->query("SELECT snip_code_id, snip_code_title FROM snip_main_code");
+    $datas = $query->fetchAll();
+    $query->closeCursor();
+    $dataObject = [];
+    foreach ($datas as $data) {
+        $dataObject[] = new CodeMapping($data);
+    }
+    return $dataObject;
+}
 
 } // end Class
 

@@ -44,7 +44,8 @@ if (isset(
 
     $htmlMapping = new HtmlMapping($htmlMapData);
     $addHtml = $htmlManager->addNewHtml($htmlMapping);
-    echo $addHtml ? 'good' : 'bad';
+    if($addHtml) header("Location: ?control=link");
+    die();
 }
 
 
@@ -66,6 +67,12 @@ switch ($route) {
         break;
     case 'html':
         echo $twig->render('privateView/private.addHtml.html.twig');
+        break;
+    case 'link':
+        $lastEntry = $htmlManager->getLastIdForLink();
+        $allCodes = $codeManager->getAllCodesForLink();
+        echo $twig->render('privateView/private.link.html.twig', ['lastEntry' => $lastEntry,
+                                                                        'allCodes' => $allCodes]);
         break;
 
 }
