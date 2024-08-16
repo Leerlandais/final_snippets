@@ -26,6 +26,25 @@ if (isset(
    // echo $addCode ? 'All good' : 'Not good';
 }
 
+if (isset(
+        $_POST["addHtmlTitle"],
+        $_POST["addHtmlDesc"],
+        $_POST["addHtmlImg"],
+        $_POST["addHtmlCode"]
+)) {
+    $htmlMapData = [
+        'snip_html_title' => $_POST["addHtmlTitle"],
+        'snip_html_desc' => $_POST["addHtmlDesc"],
+        'snip_html_img' => $_POST["addHtmlImg"],
+        'snip_html_code' => $_POST["addHtmlCode"]
+    ];
+
+    $htmlMapping = new CodeMapping($htmlMapData);
+    $addHtml = $codeManager->addNewHtml($htmlMapping);
+    echo $addHtml ? 'good' : 'bad';
+}
+
+
 $route = $_GET['control'] ?? 'home';
 switch ($route) {
     case 'home':
