@@ -63,7 +63,7 @@ public function getOneDataById(int $id) : array|bool
     $stmt->closeCursor();
     $codeObject = [];
     foreach ($codeMapping as $code) {
-        $code['snip_code_code'] = htmlspecialchars_decode($code['snip_code_code'], ENT_QUOTES);
+
         $codeObject[] = new CodeMapping($code);
     }
     return $codeObject;

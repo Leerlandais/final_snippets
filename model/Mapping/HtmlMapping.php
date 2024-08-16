@@ -33,7 +33,7 @@ class HtmlMapping extends AbstractMapping
 
     public function getSnipHtmlTitle(): ?string
     {
-        return $this->snip_html_title;
+        return htmlspecialchars_decode($this->snip_html_title);
     }
 
     public function setSnipHtmlTitle(?string $snip_html_title): void
@@ -45,7 +45,7 @@ class HtmlMapping extends AbstractMapping
 
     public function getSnipHtmlDesc(): ?string
     {
-        return $this->snip_html_desc;
+        return htmlspecialchars_decode($this->snip_html_desc);
     }
 
     public function setSnipHtmlDesc(?string $snip_html_desc): void
@@ -69,7 +69,7 @@ class HtmlMapping extends AbstractMapping
 
     public function getSnipHtmlCode(): ?string
     {
-        return $this->snip_html_code;
+        return htmlspecialchars_decode($this->snip_html_code);
     }
 
     public function setSnipHtmlCode(?string $snip_html_code): void

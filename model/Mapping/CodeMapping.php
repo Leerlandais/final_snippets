@@ -34,7 +34,7 @@ class CodeMapping extends AbstractMapping
 
     public function getSnipCodeTitle(): ?string
     {
-        return $this->snip_code_title;
+        return htmlspecialchars_decode($this->snip_code_title);
     }
 
     public function setSnipCodeTitle(?string $snip_code_title): void
@@ -46,7 +46,7 @@ class CodeMapping extends AbstractMapping
 
     public function getSnipCodeDesc(): ?string
     {
-        return $this->snip_code_desc;
+        return htmlspecialchars_decode($this->snip_code_desc);
     }
 
     public function setSnipCodeDesc(?string $snip_code_desc): void
@@ -84,7 +84,7 @@ class CodeMapping extends AbstractMapping
 
     public function getSnipCodeLink(): ?bool
     {
-        return $this->snip_code_link;
+        return htmlspecialchars_decode($this->snip_code_link);
     }
 
     public function setSnipCodeLink(?bool $snip_code_link): void
