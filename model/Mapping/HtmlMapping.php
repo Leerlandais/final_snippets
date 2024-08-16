@@ -26,6 +26,8 @@ class HtmlMapping extends AbstractMapping
 
     public function setSnipHtmlId(?int $snip_html_id): void
     {
+        if(!$this->verifyInt($snip_html_id)) throw new Exception('ID must be an integer');
+        $snip_html_id = $this->intClean($snip_html_id);
         $this->snip_html_id = $snip_html_id;
     }
 
@@ -36,6 +38,8 @@ class HtmlMapping extends AbstractMapping
 
     public function setSnipHtmlTitle(?string $snip_html_title): void
     {
+        if(!$this->verifyString($snip_html_title)) throw new Exception('Title cannot be empty');
+        $snip_html_title = $this->standardClean($snip_html_title);
         $this->snip_html_title = $snip_html_title;
     }
 
@@ -46,6 +50,8 @@ class HtmlMapping extends AbstractMapping
 
     public function setSnipHtmlDesc(?string $snip_html_desc): void
     {
+        if(!$this->verifyString($snip_html_desc)) throw new Exception('Description cannot be empty');
+        $snip_html_desc = $this->standardClean($snip_html_desc);
         $this->snip_html_desc = $snip_html_desc;
     }
 
@@ -56,6 +62,8 @@ class HtmlMapping extends AbstractMapping
 
     public function setSnipHtmlImg(?string $snip_html_img): void
     {
+        if(!$this->verifyString($snip_html_img)) throw new Exception('Image cannot be empty');
+        $snip_html_img = $this->standardClean($snip_html_img);
         $this->snip_html_img = $snip_html_img;
     }
 
@@ -66,8 +74,10 @@ class HtmlMapping extends AbstractMapping
 
     public function setSnipHtmlCode(?string $snip_html_code): void
     {
+        if(!$this->verifyString($snip_html_code)) throw new Exception('Code cannot be empty');
+        $snip_html_code = $this->simpleTrim($snip_html_code);
         $this->snip_html_code = $snip_html_code;
     }
 
-    
+
 }
