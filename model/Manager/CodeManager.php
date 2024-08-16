@@ -71,6 +71,7 @@ public function getOneDataById(int $id) : array|bool
 
 public function addNewHtml(CodeMapping $mapping) : bool
 {
+    die(var_dump($mapping));
     return false;
 }
 
