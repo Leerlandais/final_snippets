@@ -1,2 +1,22 @@
 {% extends 'publicView/public.home.html.twig' %}
 {% block title %} Public | HTML View {% endblock %}
+
+{% block content %}
+{{ dump(getData) }}
+    <div class="container pt-8 mt-6 flex flex-col gap-4">
+    {% if getData is not iterable %}
+        <h3 class="text-3xl">Sorry, no codes are currently available</h3>
+    {% else %}
+        <h3>{{ headerTitle }}</h3>
+        <!-- component -->
+        <div class="flex flex-row items-center justify-center">
+
+                <h3 class="text-3xl"></h3>
+    {% for data in getData %}
+        <a href="?route=showHtml&id={{ data.getSnipHtmlId }}"><img src="{{ data.getSnipHtmlImg }}" alt="{{ data.getSnipHtmlDesc }}"></a>
+    {% endfor %}
+
+        </div>
+    {% endif %}
+    </div>
+{% endblock %}

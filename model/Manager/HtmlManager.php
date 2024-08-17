@@ -42,14 +42,14 @@ class HtmlManager extends AbstractManager implements InterfaceManager
         return new HtmlMapping($data);
     }
 
-    public function getHtml()
+    public function getHtml() : array|bool
     {
         $query = $this->db->query("SELECT snip_html_id,
                                                 snip_html_desc,
                                                 snip_html_img
                                          FROM snip_html_code");
         $datas = $query->fetchAll();
-        if ($datas === false) return false;
+        if(empty($datas)) return false;
         $query->closeCursor();
         $dataObject = [];
         foreach ($datas as $data) {
@@ -58,5 +58,9 @@ class HtmlManager extends AbstractManager implements InterfaceManager
         return $dataObject;
     }
 
+    public function getHtmlById(int $id) : ?HtmlMapping
+    {
+        return null;
+    }
 
 } // end Class

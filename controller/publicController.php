@@ -68,6 +68,10 @@ switch ($route) {
         $getCode = $codeManager->getOneDataById($id);
             echo $twig->render('publicView/public.view.code.twig', ['getCode' => $getCode]);
         break;
+    case 'showHtml':
+        $id = $_GET["id"];
+        $getHtml = $htmlManager->getHtmlById($id);
+        echo $twig->render('publicView/public.view.fullView.twig', ['getHtml' => $getHtml]);
     default:
         echo $twig->render('publicView/public.404.html.twig');
         break;
