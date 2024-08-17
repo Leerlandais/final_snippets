@@ -72,6 +72,7 @@ switch ($route) {
         $id = $_GET["id"];
         $getHtml = $htmlManager->getHtmlById($id);
         echo $twig->render('publicView/public.view.fullView.twig', ['getHtml' => $getHtml]);
+        break;
     default:
         echo $twig->render('publicView/public.404.html.twig');
         break;

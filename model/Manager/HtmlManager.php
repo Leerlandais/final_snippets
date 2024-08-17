@@ -60,7 +60,19 @@ class HtmlManager extends AbstractManager implements InterfaceManager
 
     public function getHtmlById(int $id) : ?HtmlMapping
     {
-        return null;
+        $stmt = $this->db->prepare("SELECT h.*, c.* 
+                                          FROM snip_html_code h 
+                                          JOIN snip_html_has_code hhc
+                                          ON hhc.snip_has_html_id = h.snip_html_id
+                                          JOIN snip_main_code c
+                                          ON hhc.snip_has_code_id = c.snip_code_id
+                                          WHERE h.snip_html_id = ?");
+        $stmt->execute([$id]);
+        if ($stmt->rowCount() === 0) return null;
+        $data = $stmt->fetch();
+        $stmt->closeCursor();
+
+        return new HtmlMapping($data);
     }
 
 } // end Class
