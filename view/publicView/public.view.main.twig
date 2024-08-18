@@ -3,7 +3,7 @@
 
 {% block mainClass %} 'flex flex-col text-center mx-auto w-fit' {% endblock %}
 {% block content %}
-{{ dump (getData) }}
+
     <div class="container pt-8 mt-6 flex flex-col gap-4">
 {% if getData is not iterable %}
     <h3 class="text-3xl">Sorry, no codes are currently available</h3>

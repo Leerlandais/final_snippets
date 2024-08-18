@@ -58,13 +58,13 @@ class HtmlManager extends AbstractManager implements InterfaceManager
         return $dataObject;
     }
 
-    public function getHtmlById(int $id) : ?HtmlMapping
+    public function getHtmlById(int $id) : array|null
     {
         $stmt = $this->db->prepare("SELECT h.*, c.* 
                                           FROM snip_html_code h 
-                                          JOIN snip_html_has_code hhc
+                                          LEFT JOIN snip_html_has_code hhc
                                           ON hhc.snip_has_html_id = h.snip_html_id
-                                          JOIN snip_main_code c
+                                          LEFT JOIN snip_main_code c
                                           ON hhc.snip_has_code_id = c.snip_code_id
                                           WHERE h.snip_html_id = ?");
         $stmt->execute([$id]);
@@ -72,7 +72,7 @@ class HtmlManager extends AbstractManager implements InterfaceManager
         $data = $stmt->fetch();
         $stmt->closeCursor();
 
-        return new HtmlMapping($data);
+        return $data;
     }
 
 } // end Class
