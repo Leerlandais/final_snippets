@@ -30,7 +30,7 @@ class UserManager extends AbstractManager implements InterfaceManager {
             return false;
         }
         $_SESSION["id"] = session_id();
-
+        $_SESSION["siteName"] = "snippets";
         return true;
     }
 
