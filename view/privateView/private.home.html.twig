@@ -19,12 +19,34 @@
                 </div>
             </div>
         </a>
-    <a href="?control=update">
+    </li>
+    <li class="option-with-dropdown">
         <div class="flex items-center justify-between p-2 hover:bg-gray-700">
             <div class="flex items-center">
+                <i class="fas fa-file-alt mr-2"></i>
                 <span>Update</span>
             </div>
+            <i class="fas fa-chevron-down text-xs"></i>
         </div>
-    </a>
+        <ul class="dropdown ml-4 hidden">
+            <li class="option-with-dropdown-inner">
+                <a href="?control=update&type=code">
+                    <div class="flex items-center justify-between p-2 hover:bg-gray-700">
+                        <div class="flex items-center">
+                            <span>Code</span>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li class="option-with-dropdown-inner">
+                <a href="?control=update&type=html">
+                    <div class="flex items-center justify-between p-2 hover:bg-gray-700">
+                        <div class="flex items-center">
+                            <span>Html</span>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        </ul>
     </li>
 {% endblock %} {# end sideBarAdmin #}

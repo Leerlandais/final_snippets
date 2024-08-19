@@ -63,7 +63,18 @@ switch ($route) {
         echo $twig->render('privateView/private.addCode.html.twig');
         break;
     case "update":
-        echo $twig->render('privateView/private.updateCode.html.twig');
+        if(isset($_GET["type"])) {
+            $type = htmlspecialchars(strip_tags(trim($_GET["type"])));
+            switch ($type) {
+                case 'code':
+                    $getData = $codeManager->getAllCodesForLink();
+                    break;
+                case 'html':
+                    $getData = $htmlManager->getHtml();
+                    break;
+            }
+            echo $twig->render('privateView/private.updateCode.html.twig', ['getData' => $getData]);
+        }
         break;
     case 'html':
         echo $twig->render('privateView/private.addHtml.html.twig');

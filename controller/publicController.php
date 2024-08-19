@@ -60,7 +60,7 @@ switch ($route) {
                 echo $twig->render('publicView/public.404.html.twig');
                 break;
         }
-                echo $twig->render('publicView/public.view.main.twig', ['getData' => $getData, 'headerTitle' => $headerTitle]);
+                echo $twig->render('publicView/public.view.main.twig', ['getData' => $getData]);
        }
         break;
     case 'showCode':
