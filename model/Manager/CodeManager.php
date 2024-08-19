@@ -71,7 +71,7 @@ public function getOneDataById(int $id) : array|bool
 
 public function getAllCodesForLink()
 {
-    $query = $this->db->query("SELECT snip_code_id, snip_code_title FROM snip_main_code");
+    $query = $this->db->query("SELECT snip_code_id, snip_code_title, snip_code_desc FROM snip_main_code");
     $datas = $query->fetchAll();
     $query->closeCursor();
     $dataObject = [];
