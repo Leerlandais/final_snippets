@@ -8,3 +8,5 @@ if(isset($_SESSION["id"], $_SESSION["siteName"]) && $_SESSION["id"] === session_
 }else {
     require_once PROJECT_DIRECTORY."/controller/publicController.php";
 }
+
+

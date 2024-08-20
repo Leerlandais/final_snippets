@@ -71,6 +71,29 @@ if (isset(
     die();
 }
 
+// UPDATE EXISTING HTML
+// ADD NEW HTML
+if (isset(
+    $_POST["updateHtmlId"],
+    $_POST["updateHtmlTitle"],
+    $_POST["updateHtmlDesc"],
+    $_POST["updateHtmlImg"],
+    $_POST["updateHtmlCode"]
+)) {
+    $htmlMapData = [
+        'snip_html_id' => $_POST["updateHtmlId"],
+        'snip_html_title' => $_POST["updateHtmlTitle"],
+        'snip_html_desc' => $_POST["updateHtmlDesc"],
+        'snip_html_img' => $_POST["updateHtmlImg"],
+        'snip_html_code' => $_POST["updateHtmlCode"]
+    ];
+
+    $htmlMapping = new HtmlMapping($htmlMapData);
+    $updateHtml = $htmlManager->updateHtml($htmlMapping);
+    if($updateHtml) header("Location: ./");
+    die();
+}
+
 
 $route = $_GET['control'] ?? 'home';
 switch ($route) {
