@@ -85,6 +85,11 @@ switch ($route) {
         echo $twig->render('privateView/private.link.html.twig', ['lastEntry' => $lastEntry,
                                                                         'allCodes' => $allCodes]);
         break;
+    case 'showCode':
+        $id = intval($_GET['id']);
+        $oneCode = $codeManager->getOneDataById($id);
+        echo $twig->render('privateView/private.oneCode.html.twig', ['oneCode' => $oneCode]);
+        break;
 
 }
 

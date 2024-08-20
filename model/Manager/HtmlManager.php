@@ -45,6 +45,7 @@ class HtmlManager extends AbstractManager implements InterfaceManager
     public function getHtml() : array|bool
     {
         $query = $this->db->query("SELECT snip_html_id,
+                                                snip_html_title,
                                                 snip_html_desc,
                                                 snip_html_img
                                          FROM snip_html_code");
