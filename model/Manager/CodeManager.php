@@ -33,6 +33,31 @@ public function addNewCode(CodeMapping $mapping) : bool
     return true;
 }
 
+public function updateExistingCode(CodeMapping $mapping) : bool
+{
+    $id = $mapping->getSnipCodeId();
+    $title = $mapping->getSnipCodeTitle();
+    $desc  = $mapping->getSnipCodeDesc();
+    $code  = $mapping->getSnipCodeCode();
+    $type  = $mapping->getSnipCodeType();
+
+    $stmt = $this->db->prepare("UPDATE `snip_main_code` 
+                                      SET `snip_code_title`= :title,
+                                          `snip_code_desc`= :desc,
+                                          `snip_code_code`= :code,
+                                          `snip_code_type`= :type 
+                                      WHERE `snip_code_id` = :id");
+
+    $stmt->bindParam(':title', $title);
+    $stmt->bindParam(':desc', $desc);
+    $stmt->bindParam(':code', $code);
+    $stmt->bindParam(':type', $type);
+    $stmt->bindParam(':id', $id);
+    $stmt->execute();
+    if($stmt->rowCount() === 0) return false;
+    return true;
+}
+
 public function getDataByType($type) : array|bool
 {
     $stmt = $this->db->prepare("SELECT snip_code_id, 

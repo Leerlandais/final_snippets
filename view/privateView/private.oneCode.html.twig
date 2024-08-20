@@ -3,4 +3,63 @@
 
 {% block content %}
 {{ dump(oneCode) }}
+    {% for code in oneCode %}
+    <form action="./" method="POST" id="addNewForm" class="mx-auto">
+        <div class="bg-[#F9FAFB] h-auto w-auto flex items-center">
+            <div class="h-max mx-auto flex flex-col items-center justify-center">
+                <h3 class="text-xl font-bold text-center pb-2">Add Code</h3>
+                <div class="bg-white shadow-xl px-10 pb-2 flex flex-row gap-4 text-sm text-center">
+                    <div class="flex flex-row">
+                        <div class="flex flex-col">
+                            <div>
+                                <input class="hidden" type="text" name="updateCodeId" value="{{ code.getSnipCodeId }}">
+                                <label class="text-gray-600 font-bold inline-block pb-2" for="updateCodeTitle">Title</label>
+                                <input class="border border-gray-400 focus:outline-slate-400 rounded-md w-full shadow-sm px-5 py-2"
+                                       type="text"
+                                       name="updateCodeTitle"
+                                       id="updateCodeTitle"
+                                       placeholder="{{ code.getSnipCodeTitle }}"
+                                       value="{{ code.getSnipCodeTitle }}" required>
+                            </div>
+                            <div>
+                                <label class="text-gray-600 font-bold inline-block pb-2" for="updateCodeDesc">Description</label>
+                                <input class="border border-gray-400 focus:outline-slate-400 rounded-md w-full shadow-sm px-5 py-2"
+                                       type="text"
+                                       name="updateCodeDesc"
+                                       id="updateCodeDesc"
+                                       placeholder="{{ code.getSnipCodeDesc }}"
+                                       value="{{ code.getSnipCodeDesc }}" required>
+                            </div>
+
+                            <div>
+                                <label class="text-gray-600 font-bold inline-block pb-2" for="updateCodeCode">Code</label>
+                                <textarea class="border border-gray-400 focus:outline-slate-400 rounded-md w-full shadow-sm px-5 py-2"
+                                          rows="10"
+                                          name="updateCodeCode"
+                                          id="updateCodeCode"
+                                          placeholder="{{ code.getSnipCodeCode }}"
+                                          required>{{ code.getSnipCodeCode }}</textarea>
+                            </div>
+
+                            <div class="mt-4">
+                                <label for="updateCodeTypeCall" class="ml-4">Call</label>
+                                <input class="ps-2 me-1 updateCodeType" type="radio" id="updateCodeTypeCall" name="updateCodeType" value="phpCall" required>
+                                <label for="updateCodeTypeFunc" class="ml-4">Function</label>
+                                <input class="ps-2 me-1 updateCodeType" type="radio" id="updateCodeTypeFunc" name="updateCodeType" value="phpFunc" required>
+                                <label for="updateCodeTypeJs" class="ml-4">JS</label>
+                                <input class="ps-2 me-1 updateCodeType" type="radio" id="updateCodeTypeJs" name="updateCodeType" value="jsCode" required>
+                                <label for="updateCodeTypeJsX" class="ml-4">JSXtra</label>
+                                <input class="ps-2 me-1 updateCodeType" type="radio" id="updateCodeTypeJsX" name="updateCodeType" value="jsXtra" required>
+                            </div>
+                        </div>
+                        <!--        <div class="flex flex-col"></div>       -->
+                    </div>
+                </div>
+                <div>
+                    <button class="bg-[#4F46E5] w-full py-2 px-6 mt-2 rounded-md text-white font-bold cursor-pointer hover:bg-[#181196]" type="submit">Update</button>
+                </div>
+            </div>
+        </div>
+    </form>
+    {% endfor %}
 {% endblock %}
