@@ -89,4 +89,31 @@ class HtmlManager extends AbstractManager implements InterfaceManager
         return $data;
     }
 
+    public function updateHtml($mapping) : bool
+    {
+        $id = $mapping->getSnipHtmlId();
+        $title = $mapping->getSnipHtmlTitle();
+        $desc  = $mapping->getSnipHtmlDesc();
+        $img  = $mapping->getSnipHtmlImg();
+        $code  = $mapping->getSnipHtmlCode();
+
+
+        $stmt = $this->db->prepare("UPDATE `snip_html_code` 
+                                      SET `snip_html_title`= :title,
+                                          `snip_html_desc`= :desc,
+                                          `snip_html_img`= :img,
+                                          `snip_html_code`= :code
+                                          
+                                      WHERE `snip_html_id` = :id");
+
+        $stmt->bindParam(':title', $title);
+        $stmt->bindParam(':desc', $desc);
+        $stmt->bindParam(':img', $img);
+        $stmt->bindParam(':code', $code);
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+        if($stmt->rowCount() === 0) return false;
+        return true;
+    }
+
 } // end Class
