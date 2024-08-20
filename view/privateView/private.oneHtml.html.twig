@@ -1,0 +1,48 @@
+{% extends 'privateView/private.home.html.twig' %}
+{% block title %} Admin | Update {% endblock %}
+
+{% block content %}
+
+
+        <form action="./" method="POST" id="updateForm" class="mx-auto">
+            <div class="bg-[#F9FAFB] h-auto w-auto flex items-center">
+                <div class="h-max mx-auto flex flex-col items-center justify-center">
+                    <h3 class="text-xl font-bold text-center pb-2">Add HTML</h3>
+                    <div class="bg-white shadow-xl px-10 pb-2 flex flex-row gap-4 text-sm text-center">
+                        <div class="flex flex-row">
+                            <div class="flex flex-col">
+                                <div>
+                                    <input type="text" class="hidden" value="{{ oneHtml.getSnipHtmlId }}">
+                                    <label class="text-gray-600 font-bold inline-block pb-2" for="updateHtmlTitle">Title</label>
+                                    <input class="border border-gray-400 focus:outline-slate-400 rounded-md w-full shadow-sm px-5 py-2" type="text" name="updateHtmlTitle" id="updateHtmlTitle" placeholder="{{ oneHtml.getSnipHtmlTitle }}" value="{{ oneHtml.getSnipHtmlTitle }}" required>
+                                </div>
+                                <div>
+                                    <label class="text-gray-600 font-bold inline-block pb-2" for="updateHtmlDesc">Description</label>
+                                    <input class="border border-gray-400 focus:outline-slate-400 rounded-md w-full shadow-sm px-5 py-2" type="text" name="updateHtmlDesc" id="updateHtmlDesc" placeholder="{{ oneHtml.getSnipHtmlDesc }}" value="{{ oneHtml.getSnipHtmlDesc }}" required>
+                                </div>
+                                <div>
+                                    <label class="text-gray-600 font-bold inline-block pb-2" for="updateHtmlImg">Image Location</label>
+                                    <input class="border border-gray-400 focus:outline-slate-400 rounded-md w-full shadow-sm px-5 py-2" type="text" name="updateHtmlImg" id="updateHtmlImg" placeholder="{{ oneHtml.getSnipHtmlImg }}" value="{{ oneHtml.getSnipHtmlImg }}" required>
+                                </div>
+
+                                <div>
+                                    <label class="text-gray-600 font-bold inline-block pb-2" for="updateHtmlCode">Code</label>
+                                    <textarea class="border border-gray-400 focus:outline-slate-400 rounded-md w-full shadow-sm px-5 py-2"
+                                              rows="10"
+                                              name="updateHtmlCode"
+                                              id="updateHtmlCode"
+                                              placeholder="{{ oneHtml.getSnipHtmlCode }}" required>{{ oneHtml.getSnipHtmlCode }}</textarea>
+                                </div>
+
+                            </div>
+                            <!--        <div class="flex flex-col"></div>       -->
+                        </div>
+                    </div>
+                    <div>
+                        <button class="bg-[#4F46E5] w-full py-2 px-6 mt-2 rounded-md text-white font-bold cursor-pointer hover:bg-[#181196]" type="submit">Add</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+{% endblock %}

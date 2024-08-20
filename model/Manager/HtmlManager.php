@@ -59,6 +59,19 @@ class HtmlManager extends AbstractManager implements InterfaceManager
         return $dataObject;
     }
 
+    public function getOneHtml($id) : HtmlMapping|bool
+    {
+        $stmt = $this->db->prepare("SELECT *
+                                         FROM snip_html_code
+                                         WHERE snip_html_id = ?");
+        $stmt->execute([$id]);
+        if ($stmt->rowCount() === 0) return false;
+        $data = $stmt->fetch();
+        $stmt->closeCursor();
+        return new HtmlMapping($data);
+
+    }
+
     public function getHtmlById(int $id) : array|null
     {
         $stmt = $this->db->prepare("SELECT h.*, c.* 

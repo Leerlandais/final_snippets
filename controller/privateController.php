@@ -91,12 +91,13 @@ switch ($route) {
             switch ($type) {
                 case 'code':
                     $getData = $codeManager->getAllCodesForLink();
-                    break;
+            echo $twig->render('privateView/private.updateCode.html.twig', ['getData' => $getData]);
+                die();
                 case 'html':
                     $getData = $htmlManager->getHtml();
+                    echo $twig->render('privateView/private.updateHtml.html.twig', ['getData' => $getData]);
                     break;
             }
-            echo $twig->render('privateView/private.updateCode.html.twig', ['getData' => $getData]);
         }
         break;
     case 'html':
@@ -112,6 +113,11 @@ switch ($route) {
         $id = intval($_GET['id']);
         $oneCode = $codeManager->getOneDataById($id);
         echo $twig->render('privateView/private.oneCode.html.twig', ['oneCode' => $oneCode]);
+        break;
+    case 'showHtml':
+        $id = intval($_GET['id']);
+        $oneHtml = $htmlManager->getOneHtml($id);
+        echo $twig->render('privateView/private.oneHtml.html.twig', ['oneHtml' => $oneHtml]);
         break;
 
 }
