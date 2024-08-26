@@ -117,3 +117,4 @@ class HtmlManager extends AbstractManager implements InterfaceManager
     }
 
 } // end Class
+

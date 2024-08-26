@@ -71,7 +71,6 @@ public function getDataByType($type) : array|bool
     $dataMapping = $stmt->fetchAll();
     $stmt->closeCursor();
     $dataObject = [];
-
     foreach ($dataMapping as $data) {
         $dataObject[] = new CodeMapping($data);
     }
