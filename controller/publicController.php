@@ -4,12 +4,10 @@
 use model\Manager\UserManager;
 use model\Manager\CodeManager;
 use model\Manager\HtmlManager;
-use model\Manager\UnixManager;
 
 $userManager = new UserManager($db);
 $codeManager = new CodeManager($db);
 $htmlManager = new HtmlManager($db);
-$unixManager = new UnixManager($db);
 
 if (isset($_POST["userLoginName"],
           $_POST["userLoginPwd"])) {

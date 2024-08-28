@@ -1,45 +1,42 @@
 {% extends 'template.html.twig' %}
+{% block title %} Home {% endblock %}
 
-{% block title %} Public | View Code {% endblock %}
-{% block mainClass %} 'flex flex-col pt-12 mt-24 mx-auto'  {% endblock %}
+{% block mainClass %} 'flex flex-col text-center mx-auto w-fit' {% endblock %}
 {% block content %}
-<h3>THIS IS THE UNIX PAGE</h3>
-{% for code in getCode %}
-    <div class="text-left border border-gray-700 pt-2 px-6 pb-6">
-        <h3 class="text-3xl text-center underline">{{ code.getSnipCodeTitle | capitalize }}</h3>
-        <h4 class="text-2xl text-center">{{ code.getSnipCodeDesc }}</h4>
-        <div class="relative">
-            <label for="codeToCopy" class="sr-only">Label</label>
-            <textarea id="codeToCopy"
-                      type="text"
-                      class="bg-gray-50 border border-gray-300 text-gray-500 text-sm rounded-lg codeWindow"
-                      cols="80"
-                      rows="20"
-                      disabled readonly>{{ code.getSnipCodeCode }}
-                </textarea>
 
-            <button data-copy-to-clipboard-target="codeToCopy"
-                    data-tooltip-target="tooltip-copy-npm-install-copy-button"
-                    class="absolute top-0 end-0 translate-y-0 translate-x-6 text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg p-2 inline-flex items-center justify-center">
-            <span id="default-icon">
-                <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="green" viewBox="0 0 18 20">
-                    <path d="M16 1h-3.278A1.992 1.992 0 0 0 11 0H7a1.993 1.993 0 0 0-1.722 1H2a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2Zm-3 14H5a1 1 0 0 1 0-2h8a1 1 0 0 1 0 2Zm0-4H5a1 1 0 0 1 0-2h8a1 1 0 1 1 0 2Zm0-5H5a1 1 0 0 1 0-2h2V2h4v2h2a1 1 0 1 1 0 2Z"/>
-                </svg>
-            </span>
+    <div class="container pt-8 mt-6 flex flex-col gap-4">
+        {% if getData is not iterable %}
+            <h3 class="text-3xl">Sorry, no codes are currently available</h3>
+        {% else %}
+            <h3>{{ headerTitle }}</h3>
+            <!-- component -->
+            <div class="flex items-center justify-center">
+                <div class="overflow-x-auto">
+                    <h3 class="text-3xl"></h3>
+                    <table class="min-w-full bg-white shadow-md rounded-xl">
+                        <thead>
+                        <tr class="bg-blue-gray-100 text-gray-700">
+                            <th class="py-3 px-4 text-left">Name</th>
+                            <th class="py-3 px-4 text-left">Description</th>
+                            <th class="py-3 px-4 text-left">View Code</th>
 
-            </button>
-            <div id="tooltip-copy-npm-install-copy-button" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
-                <span id="default-tooltip-message">Copy to clipboard</span>
-                <span id="success-tooltip-message" class="hidden">Copied!</span>
-                <div class="tooltip-arrow" data-popper-arrow></div>
+                        </tr>
+                        </thead>
+                        <tbody class="text-blue-gray-900">
+                        {% for data in getData %}
+                            <tr class="border-b border-blue-gray-200">
+                                <td class="py-3 px-4">{{ data.getSnipCodeTitle }}</td>
+                                <td class="py-3 px-4">{{ data.getSnipCodeDesc }}</td>
+                                <td class="py-3 px-4">
+                                    <a href="?route=showCode&id={{ data.getSnipCodeId }}" class="font-medium text-blue-600 hover:text-blue-800">View</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+
+                </div>
             </div>
-        </div>
+        {% endif %}
     </div>
-
-    {% endfor %}
-{% endblock %}
-{% block javascript %}
-{{ parent() }}
-<script src="scripts/copyCodeScript.js"></script>
-<script src="../node_modules/flowbite/dist/flowbite.js"></script>
 {% endblock %}
