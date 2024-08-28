@@ -4,10 +4,12 @@
 use model\Manager\UserManager;
 use model\Manager\CodeManager;
 use model\Manager\HtmlManager;
+use model\Manager\UnixManager;
 
 $userManager = new UserManager($db);
 $codeManager = new CodeManager($db);
 $htmlManager = new HtmlManager($db);
+$unixManager = new UnixManager($db);
 
 if (isset($_POST["userLoginName"],
           $_POST["userLoginPwd"])) {
@@ -51,6 +53,10 @@ switch ($route) {
                     $headerTitle = "JS Extra";
                     $getData = $codeManager->getDataByType("jsXtra");
                 break;
+            case 'unix' :
+                    $headerTitle = "Linux";
+                //    $getData = $unixManager->getDataByType("unix");
+            echo $twig->render('publicView/public.view.unix.twig');
             case 'html':
                     $headerTitle = "HTML";
                     $getData = $htmlManager->getHtml();
