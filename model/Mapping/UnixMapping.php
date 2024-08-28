@@ -22,7 +22,8 @@ class UnixMapping extends AbstractMapping
 
     public function setSnipUnixId(?int $snip_unix_id): void
     {
-
+        if(!$this->verifyInt($snip_unix_id)) throw new Exception("ID must be an integer");
+        $snip_unix_id = $this->intClean($snip_unix_id);
         $this->snip_unix_id = $snip_unix_id;
     }
 
@@ -33,6 +34,8 @@ class UnixMapping extends AbstractMapping
 
     public function setSnipUnixTitle(?string $snip_unix_title): void
     {
+        if(!$this->verifyString($snip_unix_title)) throw new Exception("Title cannot be empty");
+        $snip_unix_title = $this->standardClean($snip_unix_title);
         $this->snip_unix_title = $snip_unix_title;
     }
 
@@ -43,6 +46,8 @@ class UnixMapping extends AbstractMapping
 
     public function setSnipUnixDesc(?string $snip_unix_desc): void
     {
+        if(!$this->verifyString($snip_unix_desc)) throw new Exception("Description cannot be empty");
+        $snip_unix_desc = $this->standardClean($snip_unix_desc);
         $this->snip_unix_desc = $snip_unix_desc;
     }
 
@@ -53,6 +58,8 @@ class UnixMapping extends AbstractMapping
 
     public function setSnipUnixCode(?string $snip_unix_code): void
     {
+        if(!$this->verifyString($snip_unix_code)) throw new Exception("Code cannot be empty");
+        $snip_unix_code = $this->simpleTrim($snip_unix_code);
         $this->snip_unix_code = $snip_unix_code;
     }
 
