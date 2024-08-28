@@ -34,6 +34,7 @@ switch ($route) {
     case 'select':
        if(isset($_GET["type"])) {
            $type = htmlspecialchars(strip_tags(trim($_GET["type"])));
+           $getData = null;
         switch ($type) {
             case 'call':
                     $headerTitle = "PHP Calls";
@@ -51,6 +52,10 @@ switch ($route) {
                     $headerTitle = "JS Extra";
                     $getData = $codeManager->getDataByType("jsXtra");
                 break;
+            case 'unix' :
+                      $headerTitle = "Linux";
+                $getData = $codeManager->getDataByType("unix");
+                break;
             case 'html':
                     $headerTitle = "HTML";
                     $getData = $htmlManager->getHtml();
@@ -60,7 +65,7 @@ switch ($route) {
                 echo $twig->render('publicView/public.404.html.twig');
                 break;
         }
-                echo $twig->render('publicView/public.view.main.twig', ['getData' => $getData]);
+                echo $twig->render('publicView/public.view.main.twig', ['getData' => $getData, 'headerTitle' => $headerTitle]);
        }
         break;
     case 'showCode':

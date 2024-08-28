@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    console.log("Hello World!");
+    // console.log("Hello World!");
     // Handle outer dropdowns
     const optionsWithDropdown = document.querySelectorAll(".option-with-dropdown");
     optionsWithDropdown.forEach(function (option) {

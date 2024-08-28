@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3307
--- Generation Time: Aug 16, 2024 at 08:05 AM
+-- Generation Time: Aug 28, 2024 at 04:53 PM
 -- Server version: 11.2.2-MariaDB
 -- PHP Version: 8.2.13
 
@@ -83,6 +83,21 @@ CREATE TABLE IF NOT EXISTS `snip_main_code` (
   `snip_code_type` varchar(32) NOT NULL,
   `snip_code_link` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`snip_code_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `snip_unix_code`
+--
+
+DROP TABLE IF EXISTS `snip_unix_code`;
+CREATE TABLE IF NOT EXISTS `snip_unix_code` (
+  `snip_unix_id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `snip_unix_title` varchar(128) NOT NULL,
+  `snip_unix_desc` varchar(255) NOT NULL,
+  `snip_unix_code` text NOT NULL,
+  PRIMARY KEY (`snip_unix_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 COMMIT;
 
