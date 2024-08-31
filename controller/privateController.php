@@ -23,6 +23,7 @@ if (isset(
         'snip_code_code' => $_POST["addCodeCode"],
         'snip_code_type' => $_POST["addCodeType"]
     ];
+    // sanitisation of code is handled during the Mapping by the Setters
     $codeMapping = new CodeMapping($codeMapData);
     $addCode = $codeManager->addNewCode($codeMapping);
 }

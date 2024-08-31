@@ -1,5 +1,7 @@
 <?php
 
+// In this project, I included the Interface more as a placeholder
+// I don't see much avantage to having an Interface for a solo project!
 
 namespace model\Interface;
 

@@ -6,7 +6,6 @@ use model\Abstract\AbstractManager;
 use model\Interface\InterfaceManager;
 use model\Mapping\HtmlMapping;
 use model\Trait\TraitLaundryRoom;
-use PDO;
 
 class HtmlManager extends AbstractManager implements InterfaceManager
 {
