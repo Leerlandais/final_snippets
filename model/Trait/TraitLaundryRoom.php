@@ -5,6 +5,10 @@ namespace model\Trait;
 
 Trait TraitLaundryRoom {
 
+// My favourite idea that I had in the earlier days of Procedural.
+// Sanitisation is almost always the same code and standardClean($var) is easier to type than htmlspecialchars(strip_tags(trim($var)))
+// So I made a collection of functions to bring with me everywhere :-D
+
 
    protected function standardClean($cleanThis): string
     {
@@ -44,6 +48,8 @@ Trait TraitLaundryRoom {
         return filter_var($cleanThisEmail, FILTER_SANITIZE_EMAIL);
     }
 
+
+    // I'm quite happy with this one, stops people trying to inject code
    protected function findTheNeedles($hay): bool
     {
         $needles = ["<script>",
