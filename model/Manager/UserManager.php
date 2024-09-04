@@ -4,7 +4,6 @@ namespace model\Manager;
 
 use model\Abstract\AbstractManager;
 use model\Mapping\UserMapping;
-use model\MyPDO;
 use model\Interface\InterfaceManager;
 
 class UserManager extends AbstractManager implements InterfaceManager {
@@ -12,6 +11,7 @@ class UserManager extends AbstractManager implements InterfaceManager {
 
 
     public function attemptUserLogin(string $name, string $pwd): bool {
+        // I could have used the Trait/LaundryRoom but as this is the only user input that needs sanitisation, I didn't think it necessary
         $name = htmlspecialchars(strip_tags(trim($name)));
 
         $sql = 'SELECT * FROM `snippets_users` WHERE `snip_user_login` = :name';
@@ -30,6 +30,7 @@ class UserManager extends AbstractManager implements InterfaceManager {
             return false;
         }
         $_SESSION["id"] = session_id();
+        // additional parameter to prevent cross-site connection (I have stopped using the same userName for myself on sites but I like having the extra layer)
         $_SESSION["siteName"] = "snippets";
         return true;
     }

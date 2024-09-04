@@ -23,10 +23,11 @@ if (isset(
         'snip_code_code' => $_POST["addCodeCode"],
         'snip_code_type' => $_POST["addCodeType"]
     ];
+    // sanitisation of code is handled during the Mapping by the Setters
     $codeMapping = new CodeMapping($codeMapData);
     $addCode = $codeManager->addNewCode($codeMapping);
-   // echo $addCode ? 'All good' : 'Not good';
 }
+
 
 // UPDATE EXISTING CODE
 if (isset(
@@ -46,9 +47,7 @@ if (isset(
     ];
 
     $codeMapping = new CodeMapping($codeMapData);
-
     $updateCode = $codeManager->updateExistingCode($codeMapping);
-// echo $updateCode ? 'All good' : 'Not good';
 }
 
 // ADD NEW HTML
@@ -72,7 +71,6 @@ if (isset(
 }
 
 // UPDATE EXISTING HTML
-// ADD NEW HTML
 if (isset(
     $_POST["updateHtmlId"],
     $_POST["updateHtmlTitle"],

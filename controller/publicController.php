@@ -9,12 +9,13 @@ $userManager = new UserManager($db);
 $codeManager = new CodeManager($db);
 $htmlManager = new HtmlManager($db);
 
+
+// USER LOGIN VERIFICATION
 if (isset($_POST["userLoginName"],
           $_POST["userLoginPwd"])) {
     $name = $_POST["userLoginName"];
     $pwd = $_POST["userLoginPwd"];
-// either have this here or put it outside the function if there are multiple functions
-    // $userManager = new UserManager($db);
+
     if ($userManager->attemptUserLogin($name, $pwd)) {
         header("Location: ./");
         exit;
@@ -22,6 +23,7 @@ if (isset($_POST["userLoginName"],
         echo "Login failed. Please check your credentials.";
     }
 }
+
 
 $route = $_GET['route'] ?? 'home';
 switch ($route) {
@@ -55,6 +57,10 @@ switch ($route) {
             case 'unix' :
                       $headerTitle = "Linux";
                 $getData = $codeManager->getDataByType("unix");
+                break;
+            case 'reac' :
+                $headerTitle = "React";
+                $getData = $codeManager->getDataByType("reac");
                 break;
             case 'html':
                     $headerTitle = "HTML";

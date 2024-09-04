@@ -107,10 +107,5 @@ protected ?string $snip_user_permissions;
         $this->snip_user_permissions = $snip_user_permissions;
     }
 
-    public function loadFromDbRow($row) {
-        $this->setSnipUserId($row['id']);
-        $this->setSnipUserLogin($row['snip_user_login']);
-        $this->setSnipUserPass($row['snip_user_pass']);
-    }
 
 } // end class

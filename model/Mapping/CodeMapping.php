@@ -2,6 +2,9 @@
 
 namespace model\Mapping;
 
+// Not much need for comments in the Mappings as it's all just Getters and Setters
+// Info on the sanitisation in the Trait Files
+
 use model\Abstract\AbstractMapping;
 use model\Trait\TraitTestString;
 use model\Trait\TraitTestInt;
@@ -27,7 +30,7 @@ class CodeMapping extends AbstractMapping
 
     public function setSnipCodeId(?int $snip_code_id): void
     {
-        if(!$this->verifyInt($snip_code_id)) throw new Exception('snip_code_id must be integer');
+        if(!$this->verifyInt($snip_code_id)) throw new Exception('snip_code_id must be a positive integer');
         $snip_code_id = $this->intClean($snip_code_id);
         $this->snip_code_id = $snip_code_id;
     }

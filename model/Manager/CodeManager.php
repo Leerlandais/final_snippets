@@ -3,7 +3,6 @@
 namespace model\Manager;
 
 use model\Abstract\AbstractManager;
-use model\MyPDO;
 use model\Interface\InterfaceManager;
 use model\Mapping\CodeMapping;
 use model\Trait\TraitLaundryRoom;
@@ -93,6 +92,8 @@ public function getOneDataById(int $id) : array|bool
     return $codeObject;
 }
 
+
+// For the moment, this isn't really used. I first need to figure out how to correctly map the data when using related tables (e.g. html_has_code)
 public function getAllCodesForLink()
 {
     $query = $this->db->query("SELECT snip_code_id, snip_code_title, snip_code_desc FROM snip_main_code");

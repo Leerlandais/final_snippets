@@ -2,14 +2,13 @@
 
 session_start();
 // CHECK SESSION ACTIVITY OR LOGOUT AUTOMATICALLY
-if (isset($_SESSION["activity"]) && time() - $_SESSION["activity"] > 1800) { // currently set for 30 mins
+if (isset($_SESSION["activity"]) && time() - $_SESSION["activity"] > 1800) { // currently set for 30 mins (online timer is 3 mins)
     session_unset(); // for good practice, clear the session variables as destroy doesn't remove browser cookies etc
     session_destroy();
     header("location: ./");
     exit();
 }
 $_SESSION["activity"] = time(); // change time of last activity
-$_SESSION["systemMessage"] = "Hi";
 
 use Twig\Loader\FilesystemLoader;
 use Twig\Environment;
@@ -26,11 +25,21 @@ spl_autoload_register(function ($class) {
 require_once PROJECT_DIRECTORY.'/vendor/autoload.php';
 
 $loader = new FilesystemLoader(PROJECT_DIRECTORY.'/view/');
-$twig = new Environment($loader, [
 
+// Dev version
+$twig = new Environment($loader, [
     'debug' => true,
 ]);
  $twig->addExtension(new \Twig\Extension\DebugExtension());
+
+ /*
+// Prod version
+$twig = new Environment($loader, [
+    'cache' => '../cache/Twig',
+    'debug' => false,
+]);
+ // no DebugExtension online
+ */
 
 try {
     $db = MyPDO::getInstance(DB_DRIVER . ":host=" . DB_HOST . ";dbname=" . DB_NAME . ";port=" . DB_PORT . ";charset=" . DB_CHARSET,
