@@ -62,6 +62,10 @@ switch ($route) {
                 $headerTitle = "React";
                 $getData = $codeManager->getDataByType("reac");
                 break;
+            case 'node' :
+                $headerTitle = "React";
+                $getData = $codeManager->getDataByType("node");
+                break;
             case 'else' :
                 $headerTitle = "Other Codes";
                 $getData = $codeManager->getDataByType("else");
