@@ -96,7 +96,7 @@ public function getOneDataById(int $id) : array|bool
 // For the moment, this isn't really used. I first need to figure out how to correctly map the data when using related tables (e.g. html_has_code)
 public function getAllCodesForLink()
 {
-    $query = $this->db->query("SELECT snip_code_id, snip_code_title, snip_code_desc FROM snip_main_code");
+    $query = $this->db->query("SELECT snip_code_id, snip_code_title, snip_code_desc, snip_code_type FROM snip_main_code ORDER BY snip_code_type");
     $datas = $query->fetchAll();
     $query->closeCursor();
     $dataObject = [];
