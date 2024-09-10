@@ -94,6 +94,12 @@ if (isset(
 
 
 $route = $_GET['control'] ?? 'home';
+$getSort = $codeManager->getDataByType("%%");
+if (isset($_GET["sort"])) {
+    $sort = htmlspecialchars(strip_tags(trim($_GET["sort"])));
+    $getData = $codeManager->getDataByType($sort);
+    echo $twig->render('privateView/private.updateCode.html.twig', ['getData' => $getData, 'getSort' => $getSort]);
+}else {
 switch ($route) {
     case 'home':
         echo $twig->render('privateView/private.home.html.twig');
@@ -112,7 +118,7 @@ switch ($route) {
             switch ($type) {
                 case 'code':
                     $getData = $codeManager->getAllCodesForLink();
-            echo $twig->render('privateView/private.updateCode.html.twig', ['getData' => $getData]);
+            echo $twig->render('privateView/private.updateCode.html.twig', ['getData' => $getData, 'getSort' => $getSort]);
                 die();
                 case 'html':
                     $getData = $htmlManager->getHtml();
@@ -142,4 +148,4 @@ switch ($route) {
         break;
 
 }
-
+}
