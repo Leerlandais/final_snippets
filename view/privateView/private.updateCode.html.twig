@@ -10,13 +10,23 @@
 
                         <h3 class="text-3xl">Update File</h3>
                         <div class="my-6">
+                            {# This is a temporary fix that I am using because I didn't want to write a function to do it, whereas I did want to learn how to TWIG it :-D #}
+                            {% set uniqueType = [] %}
                             {% for sort in getSort %}
-                            {% set snipCodeType = sort.getSnipCodeType %}
-                            {% if snipCodeType == "else" %}
-                                {% set snipCodeType = "Other" %}
-                            {% endif %}
-                                <a href="?control=update&type=code&sort={{ sort.getSnipCodeType }}"><button class="bg-[#4F46E5] w-auto py-2 px-6 mt-2 mx-8 rounded-md text-white font-bold cursor-pointer hover:bg-[#181196]">{{ sort.getSnipCodeType }}</button></a>
+                                {% set snipCodeType = sort.getSnipCodeType %}
+                                {% if snipCodeType == "else" %}
+                                    {% set snipCodeType = "other" %}
+                                {% endif %}
+                                {% if snipCodeType not in uniqueType %}
+                                    {% set uniqueType = uniqueType|merge([snipCodeType]) %}
+                                    <a href="?control=update&type=code&sort={{ sort.getSnipCodeType }}">
+                                        <button class="bg-[#4F46E5] w-auto py-2 px-6 mt-2 mx-8 rounded-md text-white font-bold cursor-pointer hover:bg-[#181196]">
+                                            {{ snipCodeType | capitalize }}
+                                        </button>
+                                    </a>
+                                {% endif %}
                             {% endfor %}
+
                             <a href="?control=update&type=code"><button class="bg-[#4F46E5] w-auto py-2 px-6 mt-2 rounded-md text-white font-bold cursor-pointer hover:bg-[#181196]">All</button></a>
                         </div>
 
