@@ -61,9 +61,10 @@ public function getDataByType($type) : array|bool
 {
     $stmt = $this->db->prepare("SELECT snip_code_id, 
                                              snip_code_title,
-                                             snip_code_desc 
+                                             snip_code_desc,
+                                             snip_code_type
                                       FROM snip_main_code 
-                                      WHERE snip_code_type = :type");
+                                      WHERE snip_code_type LIKE :type");
     $stmt->bindParam(':type', $type);
     $stmt->execute();
     if($stmt->rowCount() === 0) return false;
@@ -105,6 +106,8 @@ public function getAllCodesForLink()
     }
     return $dataObject;
 }
+
+
 
 } // end Class
 
