@@ -6,7 +6,7 @@
     <div class="container pt-8 mt-6 flex flex-col gap-4">
         <h2 class="text-5xl">Welcome</h2>
         <h3 class="text-4xl">Use the options on the sidebar to navigate to the code</h3>
-        <h4 class="text-3xl">Or the link on the top right to login</h4>
+        <h4 class="text-2xl">&lpar;This site was created using Object Oriented PHP and Twig&rpar;</h4>
         <div class="container pt-8 mt-6 flex flex-col gap-4">
             {% if getLatest is not iterable %}
                 <h3 class="text-3xl">Sorry, no codes are currently available</h3>
@@ -43,4 +43,9 @@
             {% endif %}
         </div>
     </div>
+
+    <div class="mt-20 text-center">
+        &copy; <a href="https://leerlandais.com" target="_blank">Leerlandais 2024</a>
+    </div>
+
 {% endblock %}
