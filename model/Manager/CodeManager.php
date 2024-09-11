@@ -107,6 +107,18 @@ public function getAllCodesForLink()
     return $dataObject;
 }
 
+public function getLatestSnippets()
+{
+    $query = $this->db->query("SELECT * FROM snip_main_code ORDER BY snip_code_id DESC LIMIT 5");
+    $datas = $query->fetchAll();
+    $query->closeCursor();
+    $dataObject = [];
+    foreach ($datas as $data) {
+        $dataObject[] = new CodeMapping($data);
+    }
+    return $dataObject;
+}
+
 
 
 } // end Class
