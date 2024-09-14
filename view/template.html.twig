@@ -17,7 +17,7 @@
 
 
 
-
+{% block mainClass %} 'flex flex-col text-center mx-auto w-fit' {% endblock %}
 {% block bodyClass %}"bg-gray-200"{% endblock %}
 {% block header %}
     <nav class="bg-blue-500 p-4 flex items-center justify-between">
@@ -164,15 +164,15 @@
                 {% endblock %}
             </ul>
         </nav>
-        <a href="https://leerlandais.com/portail" class="bottom-[150px] absolute bg-blue-500 py-2 px-6 mt-2 rounded-md text-white w-auto ml-12 font-bold cursor-pointer hover:bg-green-600"><button>Portfolio</button></a>
+        <a href="https://leerlandais.com/portail" class="bottom-40 absolute bg-blue-500 py-2 px-6 mt-2 rounded-md text-white w-auto ml-12 font-bold cursor-pointer hover:bg-green-600"><button>Portfolio</button></a>
     </aside>
 {% endblock %} {# end sideBar #}
-
 {% block footer %}
-    <div class="mt-20 text-center">
+    <div class="flex place-self-center mt-20 absolute bottom-40 align-middle">
         &copy; <a href="https://leerlandais.com" target="_blank">Leerlandais 2024</a>
     </div>
 {% endblock %}
+
 
 {% block javascript %}
 <script src="../public/scripts/sideBarScript.js"></script>

@@ -109,7 +109,7 @@ public function getAllCodesForLink()
 
 public function getLatestSnippets()
 {
-    $query = $this->db->query("SELECT * FROM snip_main_code ORDER BY snip_code_id DESC LIMIT 5");
+    $query = $this->db->query("SELECT * FROM snip_main_code ORDER BY snip_code_id DESC LIMIT 10");
     $datas = $query->fetchAll();
     $query->closeCursor();
     $dataObject = [];

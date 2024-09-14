@@ -108,7 +108,8 @@ if (isset($_GET["sort"])) {
 }else {
 switch ($route) {
     case 'home':
-        echo $twig->render('privateView/private.home.html.twig');
+        $getLatest = $codeManager->getLatestSnippets();
+        echo $twig->render('privateView/private.home.html.twig', ['getLatest' => $getLatest]);
         break;
     case 'logout':
         $userManager = new UserManager($db);
