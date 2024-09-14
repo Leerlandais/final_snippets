@@ -67,6 +67,10 @@ switch ($route) {
                 $headerTitle = "Node";
                 $getData = $codeManager->getDataByType("node");
                 break;
+            case 'bash' :
+                $headerTitle = "Bash Scripts";
+                $getData = $codeManager->getDataByType("bash");
+                break;
             case 'else' :
                 $headerTitle = "Other Codes";
                 $getData = $codeManager->getDataByType("else");
