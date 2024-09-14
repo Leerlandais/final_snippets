@@ -48,6 +48,12 @@ if (isset(
 
     $codeMapping = new CodeMapping($codeMapData);
     $updateCode = $codeManager->updateExistingCode($codeMapping);
+    if($updateCode) {
+        $getData = $codeManager->getAllCodesForLink();
+        $getSort = $codeManager->getDataByType("%%");
+        echo $twig->render('privateView/private.updateCode.html.twig', ['getData' => $getData, 'getSort' => $getSort]);
+        die();
+    }
 }
 
 // ADD NEW HTML
