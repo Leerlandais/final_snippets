@@ -4,27 +4,37 @@
 {% block content %}
     <div class="w-1/6 mx-auto text-center border border-blue-500 rounded-xl p-10 max-h-fit">
         <form action="./" method="POST">
-            <h3 class="text-xl font-bold pb-4" id="loginFormHeader">Login</h3>
+            <h3 class="text-xl font-bold pb-4" id="createFormHeader">Create Account</h3>
             <div>
-                <label class="text-gray-600 font-bold inline-block pb-2" for="userLoginName" id="loginFormUser">Name :</label>
-                <input class="border border-gray-400 focus:outline-slate-400 rounded-md w-full shadow-sm px-5 py-2" type="text" name="userLoginName" id="userName" required>
+                <label class="text-gray-600 font-bold inline-block pb-2" for="createLoginName" id="createFormUser">Name :</label>
+                <input class="border border-gray-400 focus:outline-slate-400 rounded-md w-full shadow-sm px-5 py-2" type="text" name="createLoginName" id="createName" required>
             </div>
             <div>
-                <label class="text-gray-600 font-bold inline-block pb-2" for="userLoginPwd" id="loginFormPwd">Password :</label>
-                <input class="border border-gray-400 focus:outline-slate-400 rounded-md w-full shadow-sm px-5 py-2" type="password" name="userLoginPwd" id="userLoginPwd" required>
+                <label class="text-gray-600 font-bold inline-block pb-2" for="createLoginName" id="createFormUser">Email<sup>&dagger;</sup> :</label>
+                <input class="border border-gray-400 focus:outline-slate-400 rounded-md w-full shadow-sm px-5 py-2" type="email" name="createLoginMail" id="createMail" required>
+            </div>
+            <div>
+                <label class="text-gray-600 font-bold inline-block pb-2" for="createLoginPwd" id="createFormPwd">Password :</label>
+                <input class="border border-gray-400 focus:outline-slate-400 rounded-md w-full shadow-sm px-5 py-2" type="password" name="createLoginPwd" id="createLoginPwd" required>
+            </div>
+            <div>
+                <label class="text-gray-600 font-bold inline-block pb-2" for="createLoginPwdX" id="createFormPwdX">Confirm Password :</label>
+                <input class="border border-gray-400 focus:outline-slate-400 rounded-md w-full shadow-sm px-5 py-2" type="password" name="createLoginPwdX" id="createLoginPwdX" required>
             </div>
             <div>
                 <button type="submit" class="bg-[#4F46E5] w-auto mt-3 p-2 rounded-md text-white font-bold cursor-pointer hover:bg-[#181196]">Submit</button>
             </div>
         </form>
-    </div>
-    <h4 class="text-lg">If you would like to comment on a snippet or message me, you'll need to first <a href="?route=create">create an account</a></h4>
-    <div>
-        <button type="submit" class="bg-[#4F46E5] w-auto mt-3 p-2 rounded-md text-white font-bold cursor-pointer hover:bg-[#181196]">Submit</button>
+        <p class="text-sm italic"><sup>&dagger;</sup>In case you're wondering, your email will only be used (by myself) to respond to any question you ask and will never be revealed or shared.</p>
+        <p class="text-sm italic">I only implemented the need for identification to avoid comments being spammed by bots (previous experience taught me well)</p>
     </div>
 {% endblock %} {# end content #}
 {% block footer %}
     <div class="place-self-center pl-[41%] mt-20 absolute bottom-40">
         &copy; <a href="https://leerlandais.com" target="_blank">Leerlandais 2024</a>
     </div>
+{% endblock %}
+{% block javascript %}
+    {{ parent() }}
+    <script src="../../public/scripts/createUserScript.js"></script>
 {% endblock %}
