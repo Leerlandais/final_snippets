@@ -34,6 +34,12 @@ switch ($route) {
     case 'login' :
         echo $twig->render('publicView/public.login.html.twig');
         break;
+    case 'create' :
+        echo $twig->render('publicView/public.create.html.twig');
+        break;
+    case 'privacy' :
+        echo $twig->render('publicView/public.privacy.html.twig', ["headerTitle" => "Privacy Policy"]);
+        break;
     case 'select':
        if(isset($_GET["type"])) {
            $type = htmlspecialchars(strip_tags(trim($_GET["type"])));

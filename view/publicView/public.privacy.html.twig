@@ -1,0 +1,80 @@
+{% extends 'template.html.twig' %}
+{% block title %} Home | Public {% endblock %}
+
+{% block content %}
+    <div class="container pt-8 mt-6 flex flex-col gap-4 items-center justify-center text-left">
+        <div class="overflow-x-auto">
+            <h3 class="text-3xl font-semibold">{{ headerTitle }}</h3>
+            <div class="mt-2 mb-4">
+                <p class="indent-8">Your privacy is important to me!</p>
+                <p class="indent-8">This Privacy Policy outlines how I collect, use, and protect your personal data when you interact with my website, particularly when you register an account to comment or ask questions.</p>
+                <p class="indent-8">I am committed to ensuring that your personal data is handled with the highest standards of transparency and security.</p>
+            </div>
+            <h4 class="text-2xl font-semibold mt-4">1. Data I Collect</h4>
+            <div class="mt-2 mb-4">
+                <p class="indent-8">When you use my website, I collect the following personal data:</p>
+                <p class="indent-8"><span class="font-semibold">Email Address</span>: Used to recover your credentials and respond to any questions or issues you raise.</p>
+                <p class="indent-8"><span class="font-semibold">Username</span>: This can be any name you choose and is used to display your identity when you leave comments on the site.</p>
+            </div>
+            <h4 class="text-2xl font-semibold">2. Purpose of Data Collection</h4>
+            <div class="mt-2 mb-4">
+                <p class="indent-8">I collect and use your personal data strictly for the following purposes:</p>
+                <p class="indent-8"><span class="font-semibold">Credential Recovery</span>: To help you recover your account in case you forget your login information.</p>
+                <p class="indent-8"><span class="font-semibold">Responding to Queries</span>: To respond to any questions or issues you may raise.</p>
+                <p class="indent-8"><span class="font-semibold">Comment Section Management</span>: Your username will be used to identify your comments. Your email will never be shared or publicly visible.</p>
+                <p class="indent-8"><span class="font-semibold">Spam Prevention</span>: To avoid spam or bot activity in the website’s comment section.</p>
+                <p class="indent-8">Your personal data will never be revealed, shared, or sold to third parties.</p>
+            </div>
+            <h4 class="text-2xl font-semibold">3. Legal Basis for Data Collection</h4>
+            <div class="mt-2 mb-4">
+                <p class="indent-8">I collect your data based on the following lawful grounds:</p>
+                <p class="indent-8"><span class="font-semibold">Legitimate Interest</span>: To maintain the integrity of the website by preventing spam and ensuring proper account management.</p>
+                <p class="indent-8"><span class="font-semibold">User Consent</span>: By creating an account or commenting, you agree to the use of your email for credential recovery and responding to any queries.</p>
+            </div>
+            <h4 class="text-2xl font-semibold">4. Data Retention</h4>
+            <div class="mt-2 mb-4">
+                <p class="indent-8"><span class="font-semibold">Active Users</span>: If you leave a comment on the website, your email and username may be kept indefinitely to maintain your account and comment history.</p>
+                <p class="indent-8"><span class="font-semibold">Inactive Users</span>: If your account is inactive (no login activity) for 12 months, your data will be automatically deleted.</p>
+                <p class="indent-8"><span class="font-semibold">Comment History</span>: If a comment is publicly visible on the site, I may retain a record of the comment, especially if it violates the website's community guidelines.</p>
+            </div>
+            <h4 class="text-2xl font-semibold">5. Your Rights: Access, Correction, and Deletion</h4>
+            <div class="mt-2 mb-4">
+                <p class="indent-8">You have the following rights regarding your personal data:</p>
+                <p class="indent-8"><span class="font-semibold">Access</span>: You can request a copy of the personal data I hold about you.</p>
+                <p class="indent-8"><span class="font-semibold">Correction</span>: If your data is inaccurate or outdated, you can request corrections.</p>
+                <p class="indent-8"><span class="font-semibold">Deletion</span>: You can request the deletion of your personal data at any time by sending an email <a href="mailto:admin@leerlandais.com" class="text-blue-600 underline">here</a>.</p>
+                <p class="indent-8">Please note that if you have left comments on the site, I may retain a log of these for security or moderation purposes.</p>
+                <p class="indent-8">To exercise any of these rights, please contact me <a href="mailto:admin@leerlandais.com" class="text-blue-600 underline">here</a>.</p>
+            </div>
+            <h4 class="text-2xl font-semibold">6. Data Security</h4>
+            <div class="mt-2 mb-4">
+                <p class="indent-8">I take appropriate technical and organizational measures to ensure your personal data is secure, including the use of encryption and secure data storage practices.</p>
+                <p class="indent-8">However, no method of transmission over the internet is 100% secure, so I cannot guarantee absolute security.</p>
+            </div>
+            <h4 class="text-2xl font-semibold">7. Third-Party Access</h4>
+            <div class="mt-2 mb-4">
+                <p class="indent-8">Your personal data will never be shared with third parties. I do not sell, trade, or transfer your data to anyone. It is exclusively handled by me, the website owner, for the purposes stated above.</p>
+            </div>
+            <h4 class="text-2xl font-semibold">8. Data Retention Policies</h4>
+            <div class="mt-2 mb-4">
+                <p class="indent-8"><span class="font-semibold">Active Users</span>: Your data will be retained as long as you are an active user (i.e., posting comments or accessing your account).</p>
+                <p class="indent-8"><span class="font-semibold">Inactive Users</span>: If no account activity is detected for 12 months, I will automatically delete your data to minimize unnecessary retention.</p>
+            </div>
+            <h4 class="text-2xl font-semibold">9. Complaints and Contact</h4>
+            <div class="mt-2 mb-4">
+                <p class="indent-8">If you have any concerns about how your data is being handled, or if you wish to lodge a complaint, you can contact me <a href="mailto:admin@leerlandais.com" class="text-blue-600 underline">here</a>.</p>
+                <p class="indent-8">As the sole operator of this website, I will personally handle all queries. Alternatively, you may contact the hosting provider,
+                    <a href="https://www.blacknight.com/contact/" class="underline text-blue-600">Blacknight</a>, if your complaint is related to data hosting.</p>
+            </div>
+            <h4 class="text-2xl font-semibold">10. Changes to This Privacy Policy</h4>
+            <div class="mt-2 mb-4">
+                <p class="indent-8">I may update this Privacy Policy from time to time to reflect changes in my practices or legal requirements. Any updates will be posted on this page, and I encourage you to review this policy periodically.</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block footer %}
+    <div class="flex place-self-center my-12 align-middle">
+        &copy; <a href="https://leerlandais.com" target="_blank">Leerlandais 2024</a>
+    </div>
+{% endblock %}
