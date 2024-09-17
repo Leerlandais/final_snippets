@@ -24,9 +24,11 @@
             <div>
                 <button type="submit" class="bg-[#4F46E5] w-auto mt-3 p-2 rounded-md text-white font-bold cursor-pointer hover:bg-[#181196]">Submit</button>
             </div>
+            <div>
+                <label for="privCheck" class="text-sm italic">I agree to the <a href="?route=privacy" class="text-blue-600 underline">Privacy Policy</a></label>
+            <input type="checkbox" name="privCheck" id="privCheck" required>
+            </div>
         </form>
-        <p class="text-sm italic"><sup>&dagger;</sup>In case you're wondering, your email will only be used (by myself) to respond to any question you ask and will never be revealed or shared.</p>
-        <p class="text-sm italic">I only implemented the need for identification to avoid comments being spammed by bots (previous experience taught me well)</p>
     </div>
 {% endblock %} {# end content #}
 {% block footer %}
