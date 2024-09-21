@@ -137,6 +137,9 @@ switch ($route) {
     case 'html':
         echo $twig->render('privateView/private.addHtml.html.twig');
         break;
+    case 'exes':
+        echo $twig->render('privateView/private.addExes.html.twig');
+        break;
     case 'link':
         $lastEntry = $htmlManager->getLastIdForLink();
         $allCodes = $codeManager->getAllCodesForLink();
