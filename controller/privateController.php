@@ -1,14 +1,17 @@
 <?php
 
 
+use model\Manager\ExesManager;
 use model\Manager\UserManager;
 use model\Manager\CodeManager;
 use model\Mapping\CodeMapping;
 use model\Manager\HtmlManager;
+use model\Mapping\ExesMapping;
 use model\Mapping\HtmlMapping;
 
 $codeManager = new CodeManager($db);
 $htmlManager = new HtmlManager($db);
+$exesManager = new ExesManager($db);
 
 // ADD NEW CODE
 if (isset(
@@ -109,6 +112,8 @@ if (isset(
         'snip_exes_desc' => $_POST["addExesDesc"],
         'snip_exes_code_loc' => $_POST["addExesLoc"],
     ];
+    $exesMapping = new ExesMapping($exesMapData);
+    $addExes = $exesManager->addNewExec($exesMapping);
 }
 
 
