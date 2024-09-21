@@ -73,7 +73,7 @@ switch ($route) {
                 break;
             case 'exes' :
                 $headerTitle = "Executable Files";
-                $getExes = $codeManager->getDataByType("exes");
+                $getExes = $codeManager->getDataByType("bash");
                 echo $twig->render('publicView/public.view.exes.twig', ['getExes' => $getExes, 'headerTitle' => $headerTitle]);
                 break;
             case 'else' :
