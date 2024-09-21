@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3307
--- Generation Time: Sep 21, 2024 at 08:26 AM
+-- Generation Time: Sep 21, 2024 at 09:15 AM
 -- Server version: 11.2.2-MariaDB
 -- PHP Version: 8.2.13
 
@@ -50,7 +50,7 @@ CREATE TABLE IF NOT EXISTS `snip_exes_code` (
   `snip_exes_id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT,
   `snip_exes_title` varchar(64) NOT NULL,
   `snip_exes_desc` varchar(256) NOT NULL,
-  `snip_exes_img_loc` varchar(256) NOT NULL,
+  `snip_exes_img_loc` varchar(256) NOT NULL DEFAULT 'images/NodeIcon.png',
   `snip_exes_code_loc` varchar(256) NOT NULL,
   PRIMARY KEY (`snip_exes_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
