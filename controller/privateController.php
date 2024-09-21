@@ -98,6 +98,19 @@ if (isset(
     die();
 }
 
+// ADD NEW EXECUTABLE
+if (isset(
+    $_POST["addExesTitle"],
+    $_POST["addExesDesc"],
+    $_POST["addExesLoc"]
+)) {
+    $exesMapData = [
+        'snip_exes_title' => $_POST["addExesTitle"],
+        'snip_exes_desc' => $_POST["addExesDesc"],
+        'snip_exes_code_loc' => $_POST["addExesLoc"],
+    ];
+}
+
 
 $route = $_GET['control'] ?? 'home';
 $getSort = $codeManager->getDataByType("%%");
