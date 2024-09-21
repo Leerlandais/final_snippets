@@ -71,6 +71,11 @@ switch ($route) {
                 $headerTitle = "Bash Scripts";
                 $getData = $codeManager->getDataByType("bash");
                 break;
+            case 'exes' :
+                $headerTitle = "Executable Files";
+                $getExes = $codeManager->getDataByType("exes");
+                echo $twig->render('publicView/public.view.exes.twig', ['getExes' => $getExes, 'headerTitle' => $headerTitle]);
+                break;
             case 'else' :
                 $headerTitle = "Other Codes";
                 $getData = $codeManager->getDataByType("else");
@@ -89,8 +94,9 @@ switch ($route) {
         break;
     case 'showCode':
         $id = $_GET["id"];
+        $headerTitle = "TEST";
         $getCode = $codeManager->getOneDataById($id);
-            echo $twig->render('publicView/public.view.code.twig', ['getCode' => $getCode]);
+            echo $twig->render('publicView/public.view.code.twig', ['getCode' => $getCode, 'headerTitle' => $headerTitle]);
         break;
     case 'showHtml':
         $id = $_GET["id"];
