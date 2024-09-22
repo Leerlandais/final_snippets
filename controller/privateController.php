@@ -1,14 +1,17 @@
 <?php
 
 
+use model\Manager\ExesManager;
 use model\Manager\UserManager;
 use model\Manager\CodeManager;
 use model\Mapping\CodeMapping;
 use model\Manager\HtmlManager;
+use model\Mapping\ExesMapping;
 use model\Mapping\HtmlMapping;
 
 $codeManager = new CodeManager($db);
 $htmlManager = new HtmlManager($db);
+$exesManager = new ExesManager($db);
 
 // ADD NEW CODE
 if (isset(
@@ -98,6 +101,21 @@ if (isset(
     die();
 }
 
+// ADD NEW EXECUTABLE
+if (isset(
+    $_POST["addExesTitle"],
+    $_POST["addExesDesc"],
+    $_POST["addExesLoc"]
+)) {
+    $exesMapData = [
+        'snip_exes_title' => $_POST["addExesTitle"],
+        'snip_exes_desc' => $_POST["addExesDesc"],
+        'snip_exes_code_loc' => $_POST["addExesLoc"],
+    ];
+    $exesMapping = new ExesMapping($exesMapData);
+    $addExes = $exesManager->addNewExec($exesMapping);
+}
+
 
 $route = $_GET['control'] ?? 'home';
 $getSort = $codeManager->getDataByType("%%");
@@ -136,6 +154,9 @@ switch ($route) {
         break;
     case 'html':
         echo $twig->render('privateView/private.addHtml.html.twig');
+        break;
+    case 'exes':
+        echo $twig->render('privateView/private.addExes.html.twig');
         break;
     case 'link':
         $lastEntry = $htmlManager->getLastIdForLink();

@@ -4,10 +4,12 @@
 use model\Manager\UserManager;
 use model\Manager\CodeManager;
 use model\Manager\HtmlManager;
+use model\Manager\ExesManager;
 
 $userManager = new UserManager($db);
 $codeManager = new CodeManager($db);
 $htmlManager = new HtmlManager($db);
+$exesManager = new ExesManager($db);
 
 
 // USER LOGIN VERIFICATION
@@ -77,6 +79,11 @@ switch ($route) {
                 $headerTitle = "Bash Scripts";
                 $getData = $codeManager->getDataByType("bash");
                 break;
+            case 'exes' :
+                $headerTitle = "Executable Files";
+                $getExes = $exesManager->getAllExes();
+                echo $twig->render('publicView/public.view.exes.twig', ['getExes' => $getExes, 'headerTitle' => $headerTitle]);
+                break;
             case 'else' :
                 $headerTitle = "Other Codes";
                 $getData = $codeManager->getDataByType("else");
@@ -95,8 +102,9 @@ switch ($route) {
         break;
     case 'showCode':
         $id = $_GET["id"];
+        $headerTitle = "TEST";
         $getCode = $codeManager->getOneDataById($id);
-            echo $twig->render('publicView/public.view.code.twig', ['getCode' => $getCode]);
+            echo $twig->render('publicView/public.view.code.twig', ['getCode' => $getCode, 'headerTitle' => $headerTitle]);
         break;
     case 'showHtml':
         $id = $_GET["id"];
