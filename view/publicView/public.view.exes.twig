@@ -2,6 +2,7 @@
 
 {% block title %} Public | View Executables {% endblock %}
 {% block content %}
+    {{ dump(getExes) }}
 {% for exes in getExes %}
     <div class="text-left border border-gray-700 pt-2 px-6 pb-6 mt-28">
         <h3 class="text-3xl text-center underline">{{ exes.getSnipExesTitle | capitalize }}</h3>

@@ -28,4 +28,17 @@ class ExesManager extends AbstractManager
         if($stmt->rowCount() === 0) return false;
         return true;
     }
-}
+
+    public function getAllExes() : array|bool
+    {
+        $query = $this->db->query("SELECT * FROM snip_exes_code");
+        $datas = $query->fetchAll();
+        $query->closeCursor();
+        $dataObj = [];
+        foreach($datas as $data) {
+            $dataObj[] = new ExesMapping($data);
+        }
+        return $dataObj;
+    }
+
+} // end class

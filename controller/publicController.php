@@ -4,10 +4,12 @@
 use model\Manager\UserManager;
 use model\Manager\CodeManager;
 use model\Manager\HtmlManager;
+use model\Manager\ExesManager;
 
 $userManager = new UserManager($db);
 $codeManager = new CodeManager($db);
 $htmlManager = new HtmlManager($db);
+$exesManager = new ExesManager($db);
 
 
 // USER LOGIN VERIFICATION
@@ -73,7 +75,7 @@ switch ($route) {
                 break;
             case 'exes' :
                 $headerTitle = "Executable Files";
-                $getExes = $codeManager->getDataByType("bash");
+                $getExes = $exesManager->getAllExes();
                 echo $twig->render('publicView/public.view.exes.twig', ['getExes' => $getExes, 'headerTitle' => $headerTitle]);
                 break;
             case 'else' :
