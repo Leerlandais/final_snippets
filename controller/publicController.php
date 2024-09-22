@@ -77,7 +77,7 @@ switch ($route) {
                 $headerTitle = "Executable Files";
                 $getExes = $exesManager->getAllExes();
                 echo $twig->render('publicView/public.view.exes.twig', ['getExes' => $getExes, 'headerTitle' => $headerTitle]);
-                break;
+                die();
             case 'else' :
                 $headerTitle = "Other Codes";
                 $getData = $codeManager->getDataByType("else");
