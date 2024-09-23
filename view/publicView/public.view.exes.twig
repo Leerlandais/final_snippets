@@ -7,10 +7,25 @@
     <div class="text-center border border-gray-700 pt-2 px-6 pb-6 mt-28 flex flex-col items-center">
         <h3 class="text-3xl text-center underline">{{ exes.getSnipExesTitle | capitalize }}</h3>
         <h4 class="text-2xl text-center">{{ exes.getSnipExesDesc }}</h4>
-    <a href="{{ PROJECT_DIRECTORY }}downloads/multiInstaller.exe" download><img src="{{ PROJECT_DIRECTORY }}images/NodeIcon.png" alt="{{ data.getSnipExesDesc }}" class="h-36 w-36"></a>
+    <a href="{{ PROJECT_DIRECTORY }}downloads/multiInstaller.exe" download>
+        <img src="{{ PROJECT_DIRECTORY }}images/NodeIcon.png"
+             alt="{{ data.getSnipExesDesc }}"
+             class="h-36 w-36">
+    </a>
     </div>
     {% endfor %}
+    <section>
+        <h3 class="text-2xl underline">The Multi-Installer can :</h3>
+        <ul>
+            <li>Set up a project from a fork (from one of my projects)</li>
+            <li>Set up a React app with Tailwind included</li>
+            <li>Set up a React app with Bootstrap included</li>
+            <li>Create a Node project</li>
+            <li>Create a Node project with Database</li>
+            <li>Create an empty MVC</li>
+        </ul>
 
+    </section>
 {% endblock %}
 {% block javascript %}
 {{ parent() }}

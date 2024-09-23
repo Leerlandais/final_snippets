@@ -4,7 +4,10 @@
   {% block mainClass %} "mx-auto mt-6" {% endblock %}
 
 {% block content %}
-    <form action="./" method="POST" id="addNewExes" class="mx-auto">
+    <form action="./"
+          method="POST"
+          id="addNewExes"
+          class="mx-auto">
         <div class="bg-[#F9FAFB] h-auto w-auto flex items-center">
             <div class="h-max mx-auto flex flex-col items-center justify-center">
                 <h3 class="text-xl font-bold text-center pb-2">Add Executable File</h3>
@@ -13,18 +16,37 @@
                         <div class="flex flex-col">
 
                             <div>
-                                <label class="text-gray-600 font-bold inline-block pb-2" for="addExesTitle">Title</label>
-                                <input class="border border-gray-400 focus:outline-slate-400 rounded-md w-full shadow-sm px-5 py-2" type="text" name="addExesTitle" id="addExesTitle" placeholder="Title" required>
+                                <label class="text-gray-600 font-bold inline-block pb-2"
+                                       for="addExesTitle">Title</label>
+                                <input class="border border-gray-400 focus:outline-slate-400 rounded-md w-full shadow-sm px-5 py-2"
+                                       type="text"
+                                       name="addExesTitle"
+                                       id="addExesTitle"
+                                       placeholder="Title"
+                                       required>
                             </div>
 
                             <div>
-                                <label class="text-gray-600 font-bold inline-block pb-2" for="addExesDesc">Description</label>
-                                <input class="border border-gray-400 focus:outline-slate-400 rounded-md w-full shadow-sm px-5 py-2" type="text" name="addExesDesc" id="addExesDesc" placeholder="Description" required>
+                                <label class="text-gray-600 font-bold inline-block pb-2"
+                                       for="addExesDesc">Description</label>
+                                <input class="border border-gray-400 focus:outline-slate-400 rounded-md w-full shadow-sm px-5 py-2"
+                                       type="text"
+                                       name="addExesDesc"
+                                       id="addExesDesc"
+                                       placeholder="Description"
+                                       required>
                             </div>
 
                             <div>
-                                <label class="text-gray-600 font-bold inline-block pb-2" for="addExesLoc">location</label>
-                                <input class="border border-gray-400 focus:outline-slate-400 rounded-md w-full shadow-sm px-5 py-2" type="text" name="addExesLoc" id="addExesLoc" placeholder="downloads/" value="downloads/" required>
+                                <label class="text-gray-600 font-bold inline-block pb-2"
+                                       for="addExesLoc">location</label>
+                                <input class="border border-gray-400 focus:outline-slate-400 rounded-md w-full shadow-sm px-5 py-2"
+                                       type="text"
+                                       name="addExesLoc"
+                                       id="addExesLoc"
+                                       placeholder="downloads/"
+                                       value="downloads/"
+                                       required>
                             </div>
 
                         </div>
@@ -32,7 +54,10 @@
                     </div>
                 </div>
                 <div>
-                    <button class="bg-[#4F46E5] w-full py-2 px-6 mt-2 rounded-md text-white font-bold cursor-pointer hover:bg-[#181196]" type="submit">Add</button>
+                    <button class="bg-[#4F46E5] w-full py-2 px-6 mt-2 rounded-md text-white font-bold cursor-pointer hover:bg-[#181196]"
+                            type="submit">
+                        Add
+                    </button>
                 </div>
             </div>
         </div>
