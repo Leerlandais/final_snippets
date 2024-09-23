@@ -1,0 +1,10 @@
+dd {
+    display: none;
+}
+dt {
+    cursor: pointer;
+    font-weight: bold;
+}
+dt.active + dd {
+    display: block;
+}
