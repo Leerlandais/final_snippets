@@ -11,18 +11,18 @@
     <div class="text-center border border-gray-700 pt-2 px-6 pb-6 mt-28 flex flex-col items-center">
         <h3 class="text-3xl text-center underline">{{ exes.getSnipExesTitle | capitalize }}</h3>
         <h4 class="text-2xl text-center">{{ exes.getSnipExesDesc }}</h4>
-    <a href="{{ PROJECT_DIRECTORY }}downloads/multiInstaller.exe" download>
+        <a href="{{ PROJECT_DIRECTORY }}downloads/multiInstaller.exe" download>
         <img src="{{ PROJECT_DIRECTORY }}images/NodeIcon.png"
              alt="{{ data.getSnipExesDesc }}"
              class="h-36 w-36">
-    </a>
+        </a>
     </div>
     {% endfor %}
     <section>
         <h3 class="text-2xl underline mt-8">The Multi-Installer can :</h3>
         <dl class="text-center">
             <dt>Set up a project from a fork (from one of my projects)</dt>
-                <dd class="border-1 border-gray-900 border">
+                <dd class="border-1 border-gray-900 border rounded px-8">
                     <span class="font-semibold italic">
                         Once you have created a Fork of one of my projects &lpar;<a href="https://github.com/Leerlandais"
                                                                                     target="_blank"
@@ -37,7 +37,7 @@
                     </ol>
                 </dd>
             <dt>Set up a React app with Tailwind included</dt>
-                <dd class="border-1 border-gray-900 border">
+                <dd class="border-1 border-gray-900 border rounded px-8">
                     <span class="font-semibold italic">Provide the project name, &lpar;it will change it to lowercase&rpar;, and then perform the following:</span>
                     <ul>
                         <li>Creates the React app - this may take some time</li>
@@ -48,17 +48,17 @@
                     </ul>
                 </dd>
             <dt>Set up a React app with Bootstrap included</dt>
-                <dd class="border-1 border-gray-900 border">
+                <dd class="border-1 border-gray-900 border rounded px-8">
                     <span class="font-semibold italic">Provide the project name, &lpar;it will change it to lowercase&rpar;, and then perform the following:</span>
                     <ul>
                         <li>Creates the React App - this may take some time</li>
                         <li>Moves into the project folder and installs Bootstrap</li>
-                        <li>Copies the current JS file and replaces it with one containing the necessary Bootstap imports added</li>
+                        <li>Copies the current JS file and replaces it with one containing the necessary Bootstrap imports added</li>
                         <li>Exits</li>
                     </ul>
                 </dd>
             <dt>Create a Node project</dt>
-                <dd class="border-1 border-gray-900 border">
+                <dd class="border-1 border-gray-900 border rounded px-8">
                     <span class="font-semibold italic">Provide the project name, &lpar;it will change it to lowercase&rpar;, and then perform the following:</span>
                     <ul>
                         <li>Creates the Node project using Express (view set to ejs)</li>
@@ -70,7 +70,7 @@
                     </ul>
                 </dd>
             <dt>Create a Node project with Database</dt>
-                <dd class="border-1 border-gray-900 border">
+                <dd class="border-1 border-gray-900 border rounded px-8">
                     <span class="font-semibold italic">Provide the project name, &lpar;it will change it to lowercase&rpar;, and then perform the following:</span>
                     <ul>
                         <li>Creates the Node project using Express (view set to ejs)</li>
@@ -87,8 +87,8 @@
                     </ul>
                 </dd>
             <dt>Create an empty MVC</dt>
-                <dd class="border-1 border-gray-900 border font-semibold italic">
-                    <span>Provide the project name, and then perform the following:</span>
+                <dd class="border-1 border-gray-900 border rounded px-8">
+                    <span class=" font-semibold italic">Provide the project name, and then perform the following:</span>
                     <ul>
                         <li>Creates empty folders following MVC standards</li>
                         <li>Adds a placeholding readMe file to all folders</li>
@@ -98,7 +98,7 @@
                     </ul>
                 </dd>
         </dl>
-
+    <h4 class="text-xl mt-4">You can find the source code for this .exe <a href="https://github.com/Leerlandais/source_code/blob/main/Source/multi-installer.js" target="_blank" class="underline text-blue-800">here</a></h4>
     </section>
 {% endblock %}
 {% block javascript %}
