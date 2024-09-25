@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 // CHECK SESSION ACTIVITY OR LOGOUT AUTOMATICALLY
 if (isset($_SESSION["activity"]) && time() - $_SESSION["activity"] > 1800) { // currently set for 30 mins (online timer is 3 mins)
@@ -16,6 +15,7 @@ use Twig\Environment;
 use model\MyPDO;
 
 require_once "../config.php";
+
 
 spl_autoload_register(function ($class) {
     $class = str_replace('\\', '/', $class);
@@ -40,6 +40,8 @@ $twig = new Environment($loader, [
 ]);
  // no DebugExtension online
  */
+
+$twig->addGlobal('PROJECT_DIRECTORY', PROJECT_DIRECTORY);
 
 try {
     $db = MyPDO::getInstance(DB_DRIVER . ":host=" . DB_HOST . ";dbname=" . DB_NAME . ";port=" . DB_PORT . ";charset=" . DB_CHARSET,
