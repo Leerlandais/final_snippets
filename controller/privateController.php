@@ -174,6 +174,9 @@ switch ($route) {
         $oneHtml = $htmlManager->getOneHtml($id);
         echo $twig->render('privateView/private.oneHtml.html.twig', ['oneHtml' => $oneHtml]);
         break;
+    case 'backup' :
+        echo $twig->render('privateView/private.backup.html.twig');
+        break;
 
 }
 }

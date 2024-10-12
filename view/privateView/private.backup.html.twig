@@ -1,0 +1,22 @@
+{% extends 'privateView/private.home.html.twig' %}
+
+{% block title %} Admin | Backup {% endblock %}
+{% block headerLink %}<a href="?control=logout"><span class="text-white">Logout</span></a>{% endblock %}
+{% block sideBarPublic %} {% endblock %}
+
+
+{% block content %}
+    <div class="container pt-8 mt-6 flex flex-col gap-4">
+        <form action="" method="post">
+            <div>
+                <label for="dumpName">Dump Name : </label>
+                <input type="text" id="dumpName" name="dumpName">
+            </div>
+            <div>
+                <input type="submit" value="Dump SQL">
+            </div>
+        </form>
+    </div>
+
+
+{% endblock %}
