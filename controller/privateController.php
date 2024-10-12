@@ -116,6 +116,24 @@ if (isset(
     $addExes = $exesManager->addNewExec($exesMapping);
 }
 
+// BACKUP DB
+if (isset(
+    $_POST["dumpName"])
+    && $_POST["dumpName"] != ""
+) {
+    $dir = PROJECT_DIRECTORY."/public/downloads";
+    $output = htmlspecialchars(trim(strip_tags($_POST["dumpName"], ENT_QUOTES)));
+    $user = DB_LOGIN;
+    $pass = DB_PWD;
+    $host = DB_HOST;
+    $database = DB_NAME;
+    try{
+        exec("mysqldump --user={$user} --password={$pass} --host={$host} {$database} --result-file={$dir} 2>&1", $output);
+        die(var_dump($output));
+        }catch (Exception $e){
+        die ($e->getMessage());
+    }
+}
 
 $route = $_GET['control'] ?? 'home';
 $getSort = $codeManager->getDataByType("%%");
