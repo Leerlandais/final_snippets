@@ -26,14 +26,14 @@ require_once PROJECT_DIRECTORY.'/vendor/autoload.php';
 
 $loader = new FilesystemLoader(PROJECT_DIRECTORY.'/view/');
 
-/*
+
 // Dev version
 $twig = new Environment($loader, [
     'debug' => true,
 ]);
  $twig->addExtension(new \Twig\Extension\DebugExtension());
-*/
 
+/*
 // Prod version
 $twig = new Environment($loader, [
     'cache' => '../cache/Twig',
@@ -41,7 +41,7 @@ $twig = new Environment($loader, [
 ]);
  // no DebugExtension online
 
-
+*/
 try {
     $db = MyPDO::getInstance(DB_DRIVER . ":host=" . DB_HOST . ";dbname=" . DB_NAME . ";port=" . DB_PORT . ";charset=" . DB_CHARSET,
         DB_LOGIN,
