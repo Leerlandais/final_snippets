@@ -24,6 +24,7 @@ const showSuccess = () => {
     $defaultTooltipMessage.classList.add('hidden');
     $successTooltipMessage.classList.remove('hidden');
     tooltip.show();
+
 }
 
 const resetToDefault = () => {
